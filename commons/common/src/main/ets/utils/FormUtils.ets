@@ -49,6 +49,7 @@ class FormUtils {
           `Insert formInfo failed, form info is ${formInfo.toString()}, code is ${err.code}, message is ${err.message}`);
       });
     });
+    RdbUtils.closeRdb();
   }
 
   /**
@@ -122,7 +123,8 @@ class FormUtils {
         hilog.error(0x0000, TAG,
           `Delete formInfo failed, formId is ${formId}, code is ${err.code}, message is ${err.message}`);
       });
-    })
+    });
+    RdbUtils.closeRdb();
   }
 }
 

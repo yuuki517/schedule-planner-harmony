@@ -20,7 +20,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
 
 const TAG: string = '[RequestAuthorization]';
-const DOMAIN_NUMBER: number = 0xFF00;
+const DOMAIN_NUMBER: number = 0x0000;
 
 export class RequestAuthorization {
   static async requestNotification(uIContext: UIContext): Promise<boolean> {

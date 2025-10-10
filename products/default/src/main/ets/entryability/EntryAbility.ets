@@ -49,6 +49,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onDestroy(): void {
+    RdbUtils.closeRdb();
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
   }
 
