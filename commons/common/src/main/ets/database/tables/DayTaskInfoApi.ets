@@ -180,7 +180,7 @@ class DayTaskInfoApi implements TableApi<DayTaskInfo> {
     return new DayTaskInfo(id, date, taskId, targetValue, finValue, isDone);
   }
 
-  /**
+  /*
    * Query the primary key of the task information for the day based on the date and task ID.
    * @param { string } date date of the day.
    * @param { number } taskId id of the task.
@@ -209,7 +209,7 @@ class DayTaskInfoApi implements TableApi<DayTaskInfo> {
     return result;
   }
 
-  /**
+  /*
    * query the list of opened task information.
    * @returns { Promise<TaskInfo[]> } opened task list.
    */

@@ -26,11 +26,11 @@ import ColumnInfo from '../../model/ColumnModel';
 import { DayInfo } from '../../model/database/DayInfo';
 import { TaskInfo } from '../../model/database/TaskInfo';
 import { RdbConstants } from '../../constants/RdbConstants';
-import PreferencesUtils from '../../utils/PreferencesUtils';
+import { PreferencesUtils } from '../../utils/PreferencesUtils';
 import { DayTaskInfo } from '../../model/database/DayTaskInfo';
 import { convertDate2Str, convertStr2Date } from '../../utils/Utils';
 import { CommonConstants as Const } from '../../constants/CommonConstants';
-import FormUtils from '../../utils/FormUtils';
+import { FormUtils } from '../../utils/FormUtils';
 
 // hilog tag.
 const TAG: string = 'DayInfoApi';
@@ -194,7 +194,7 @@ class DayInfoApi implements TableApi<DayInfo> {
     return new DayInfo(date, targetTaskNum, finTaskNum);
   }
 
-  /**
+  /*
    * initialize the information of the day.
    * @param { string } date date of the day.
    * @returns { Promise<boolean> } whether it was successful or not.
@@ -262,7 +262,7 @@ class DayInfoApi implements TableApi<DayInfo> {
     return true;
   }
 
-  /**
+  /*
    * Update the information of the day based on the task information of the day.
    * @param { string } date date of the day.
    * @returns { Promise<boolean> } whether it was successful or not.
@@ -281,7 +281,7 @@ class DayInfoApi implements TableApi<DayInfo> {
     return result;
   }
 
-  /**
+  /*
    * Initialize the achievement preference information based on the information of the day.
    * @param { string } date date of the day.
    * @returns { Promise<boolean> } whether it was successful or not.

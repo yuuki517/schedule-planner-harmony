@@ -15,7 +15,7 @@
  *
  */
 
-/**
+/*
  * Define field information to control and create tables.
  */
 export default class ColumnInfo {

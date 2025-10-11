@@ -186,7 +186,7 @@ class FormInfoApi implements TableApi<FormInfo> {
     return new FormInfo(formId, formName, formDimension);
   }
 
-  /**
+  /*
    * query all service card information.
    * @returns { Promise<FormInfo[]> } all service card information.
    */

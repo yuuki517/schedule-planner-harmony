@@ -25,30 +25,30 @@ const TAG: string = 'PreferencesUtils';
 // achievement store options
 const achievementStoreOptions: preferences.Options = { name: Const.ACHIEVEMENT_STORE };
 
-class PreferencesUtils {
+export class PreferencesUtils {
   // user preferences connect instances of achievement store.
-  storePreferences?: preferences.Preferences | null;
+  static storePreferences?: preferences.Preferences | null;
 
-  /**
+  /*
    * create a user preference instance of achievement store and initialize the relevant information.
    * @param { Context } context context.
    * @returns { Promise<void> } A promise object.
    */
-  async getPreferencesFromStorage(context: Context): Promise<void> {
+  static async getPreferencesFromStorage(context: Context): Promise<void> {
     try {
-      this.storePreferences = await preferences.getPreferences(context, achievementStoreOptions)
+      PreferencesUtils.storePreferences = await preferences.getPreferences(context, achievementStoreOptions)
       hilog.info(0x0000, TAG, `Succeeded to load the preferences, options is ${Const.ACHIEVEMENT_STORE}`);
 
-      if (this.storePreferences) {
+      if (PreferencesUtils.storePreferences) {
         // initialize the relevant information
-        if (!this.storePreferences.hasSync(Const.MAX_CONSECUTIVE_DAYS)) {
-          await this.putPreference(Const.MAX_CONSECUTIVE_DAYS, '0');
+        if (!PreferencesUtils.storePreferences.hasSync(Const.MAX_CONSECUTIVE_DAYS)) {
+          await PreferencesUtils.putPreference(Const.MAX_CONSECUTIVE_DAYS, '0');
         }
-        if (!this.storePreferences.hasSync(Const.CURRENT_CONSECUTIVE_DAYS)) {
-          await this.putPreference(Const.CURRENT_CONSECUTIVE_DAYS, '0');
+        if (!PreferencesUtils.storePreferences.hasSync(Const.CURRENT_CONSECUTIVE_DAYS)) {
+          await PreferencesUtils.putPreference(Const.CURRENT_CONSECUTIVE_DAYS, '0');
         }
-        if (!this.storePreferences.hasSync(Const.CURRENT_DAY_STATUS)) {
-          await this.putPreference(Const.CURRENT_DAY_STATUS, String(false));
+        if (!PreferencesUtils.storePreferences.hasSync(Const.CURRENT_DAY_STATUS)) {
+          await PreferencesUtils.putPreference(Const.CURRENT_DAY_STATUS, String(false));
         }
         hilog.info(0x0000, TAG, `Succeeded to init the preferences info, options is ${Const.ACHIEVEMENT_STORE}`);
       }
@@ -58,19 +58,19 @@ class PreferencesUtils {
     }
   }
 
-  /**
+  /*
    * Sets an value for the key in the Preferences object and save the Preferences object to the file.
    * @param { string } key Indicates the key of the preferences to modify.
    * @param { string } value Indicates the value of the preferences.
    * @returns { Promise<void> } A promise object.
    */
-  async putPreference(key: string, value: string): Promise<void> {
-    if (!this.storePreferences) {
+  static async putPreference(key: string, value: string): Promise<void> {
+    if (!PreferencesUtils.storePreferences) {
       return;
     }
     try {
-      await this.storePreferences.put(key, value)
-      await this.storePreferences.flush()
+      await PreferencesUtils.storePreferences.put(key, value)
+      await PreferencesUtils.storePreferences.flush()
       hilog.info(0x0000, TAG, `Succeeded to put the preferences, key is ${key}, value is ${value}`);
     } catch (error) {
       let err = error as BusinessError;
@@ -79,18 +79,18 @@ class PreferencesUtils {
     }
   }
 
-  /**
+  /*
    * Obtains the value of a preferences in the ValueType format.
    * @param { string } key Indicates the key of the preferences.
    * @returns { Promise<string> } The value matching the specified key if it is found;
    */
-  async getPreference(key: string): Promise<string> {
+  static async getPreference(key: string): Promise<string> {
     let value: string = ''
-    if (!this.storePreferences) {
+    if (!PreferencesUtils.storePreferences) {
       return value;
     }
     try {
-      value = await this.storePreferences.get(key, 'default') as string;
+      value = await PreferencesUtils.storePreferences.get(key, 'default') as string;
       hilog.info(0x0000, TAG, `Succeeded to get the preferences, key is ${key}, value is ${value}`);
     } catch (error) {
       let err = error as BusinessError;
@@ -101,5 +101,3 @@ class PreferencesUtils {
     return value;
   }
 }
-
-export default new PreferencesUtils();

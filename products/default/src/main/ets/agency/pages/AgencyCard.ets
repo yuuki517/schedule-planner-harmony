@@ -67,27 +67,27 @@ struct AgencyCard {
    * The target value splicing
    */
   readonly TARGET_VALUE_SPLICING: string = this.CROSS_BAR_SYMBOL + this.SLASHES;
-  /**
+  /*
    * The list component space.
    */
   readonly LIST_SPACE: number = 5;
-  /**
+  /*
    * The list component two lanes.
    */
   readonly LIST_TWO_LANES: number = 2;
-  /**
+  /*
    * The empty data text opacity.
    */
   readonly TEXT_OPACITY: number = 0.4;
-  /**
+  /*
    * The target text opacity.
    */
   readonly TARGET_TEXT_OPACITY: number = 0.6;
-  /**
+  /*
    * The target text weight.
    */
   readonly TARGET_TEXT_WEIGHT: number = 1;
-  /**
+  /*
    * The text slightly bold.
    */
   readonly TEXT_SLIGHTLY_BOLD: number = 500;

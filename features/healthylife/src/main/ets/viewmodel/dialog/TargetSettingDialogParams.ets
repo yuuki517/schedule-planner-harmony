@@ -17,7 +17,7 @@
 
 import { convertTime2Date, PickerType, TaskBaseInfo, TaskInfo } from 'common';
 
-/**
+/*
  * Task goal setting custom dialog parameters.
  */
 export class TargetSettingDialogParams {

@@ -200,7 +200,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
       alertFrequency, reminderId);
   }
 
-  /**
+  /*
    * check if the default task exists and complete it.
    * @returns { Promise<boolean> } check if it was successful.
    */
@@ -224,7 +224,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
     return true;
   }
 
-  /**
+  /*
    * query the list of task information.
    * @returns { Promise<TaskInfo[]> } task list.
    */
@@ -250,7 +250,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
     return result;
   }
 
-  /**
+  /*
    * query the list of opened task information.
    * @returns { Promise<TaskInfo[]> } opened task list.
    */
@@ -277,7 +277,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
     return result;
   }
 
-  /**
+  /*
    * initialize all tasks to an incomplete state.
    * @returns { Promise<boolean> } initialization succeeded.
    */
@@ -292,7 +292,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
     return result;
   }
 
-  /**
+  /*
    * Open the task and update the relevant information synchronously.
    * @param { string } date date of the day.
    * @param { number } taskId id of the task.
@@ -337,7 +337,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
     return result;
   }
 
-  /**
+  /*
    * Open the task and update the relevant information synchronously.
    * @param { string } date date of the day.
    * @param { number } taskId id of the task.
@@ -377,7 +377,7 @@ class TaskInfoApi implements TableApi<TaskInfo> {
     return result;
   }
 
-  /**
+  /*
    * Clock the task and update the relevant information synchronously.
    * @param { string } date date of the day.
    * @param { number } taskId id of the task.

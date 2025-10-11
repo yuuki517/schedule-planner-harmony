@@ -17,7 +17,7 @@
 
 import { DayTaskInfo } from './database/DayTaskInfo';
 
-/**
+/*
  * service card interaction data.
  */
 export default class FormStorageModel {

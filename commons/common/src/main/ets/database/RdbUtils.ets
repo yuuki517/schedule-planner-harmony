@@ -27,7 +27,7 @@ export class RdbUtils {
   // database connection instance.
   static rdbStore?: relationalStore.RdbStore;
 
-  /**
+  /*
    * The method of creating an RDBStore Instance.
    */
   static async createRdb(context: Context): Promise<void> {
@@ -43,7 +43,7 @@ export class RdbUtils {
     });
   }
 
-  /**
+  /*
    * The method of creating a table.
    * @param { string } tableName the table name that needs to be created
    */
@@ -63,7 +63,7 @@ export class RdbUtils {
       });
   }
 
-  /**
+  /*
    * generate a SQL statement for creating a new table based on the table name
    * @param { string } tableName the table name that needs to be created
    * @returns { string } the generated SQL statement
@@ -84,7 +84,7 @@ export class RdbUtils {
     return sql;
   }
 
-  /**
+  /*
    * The method of execute sql.
    * @param { string } executeSql the sql statement that needs to be executed.
    * @returns { Promise<boolean> } returns whether the execution was successful.
@@ -101,7 +101,7 @@ export class RdbUtils {
     return result;
   }
 
-  /**
+  /*
    * The method of creating an RDBStore Instance.
    */
   static async closeRdb(): Promise<void> {

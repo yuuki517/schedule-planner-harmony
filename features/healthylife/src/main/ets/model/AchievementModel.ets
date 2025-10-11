@@ -15,7 +15,7 @@
  *
  */
 
-/**
+/*
  * achievement default information.
  */
 export interface AchievementItem {
@@ -64,7 +64,7 @@ export const AchievementList: AchievementItem[] = [
   }
 ]
 
-/**
+/*
  * Gets the current maximum number of consecutive days to complete an achievement.
  * @param { number } maxConsecutiveDays The maximum number of consecutive days completed before the achievement.
  * @returns { number } If an achievement is achieved, the achievement index is returned, otherwise -1 is returned.

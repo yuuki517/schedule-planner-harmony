@@ -55,11 +55,11 @@ struct ProgressCard {
    * The slashes splicing.
    */
   readonly SLASHES: string = '/';
-  /**
+  /*
    * The progress total to 100.
    */
   readonly PROGRESS_TOTAL: number = 100;
-  /**
+  /*
    * The text slightly bold.
    */
   readonly TEXT_SLIGHTLY_BOLD: number = 500;

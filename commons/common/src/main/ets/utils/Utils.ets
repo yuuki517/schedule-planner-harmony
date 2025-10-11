@@ -17,7 +17,7 @@
 
 import { i18n } from '@kit.LocalizationKit';
 
-/**
+/*
  * the formatted date is in standard format.
  * @param { Date } date date that need to be formatted.
  * @returns { string } date formatted.
@@ -31,7 +31,7 @@ export function formatSystemTime(date: Date): string {
   return dateFormat.format(date);
 }
 
-/**
+/*
  * convert date format to string format(YYYYMMDD).
  * @param { Date } date date that need to be formatted.
  * @returns { string } date formatted.
@@ -43,7 +43,7 @@ export function convertDate2Str(date: Date): string {
   return `${year}${month}${day}`;
 }
 
-/**
+/*
  * convert string format(YYYYMMDD) format to date.
  * @param { string } dateStr dateStr that need to be formatted.
  * @returns { Date } dateStr formatted.
@@ -55,7 +55,7 @@ export function convertStr2Date(dateStr: string): Date {
   return new Date(year, month, day);
 }
 
-/**
+/*
  * convert string format(HH:MM) format to date.
  * @param { string } dateStr dateStr that need to be formatted.
  * @returns { Date } dateStr formatted.

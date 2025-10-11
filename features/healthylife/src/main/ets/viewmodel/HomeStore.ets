@@ -22,7 +22,7 @@ import DayInfoApi from 'common/src/main/ets/database/tables/DayInfoApi';
 import TaskInfoApi from 'common/src/main/ets/database/tables/TaskInfoApi';
 import DayTaskInfoApi from 'common/src/main/ets/database/tables/DayTaskInfoApi';
 
-/**
+/*
  * Global day and tasks information storage.
  */
 @Observed
@@ -45,7 +45,7 @@ export class HomeStore {
   }
 }
 
-/**
+/*
  * Initialize the global storage information of the day.
  * @param { Date } date Date of the day.
  * @returns { Promise<HomeStore> } The global storage information.
@@ -77,7 +77,7 @@ export async function initCurrentDateInfo(date: Date): Promise<HomeStore> {
   return new HomeStore(weekList, selectedDay + Const.WEEK_DAY_NUM, dateStr, taskList);
 }
 
-/**
+/*
  * Update the task list information in the global storage information.
  * @param { HomeStore } homeStore The global storage information.
  * @returns { Promise<void> }  A promise object.
@@ -102,7 +102,7 @@ export async function updateTaskList(homeStore: HomeStore): Promise<void> {
   homeStore.taskList = taskList;
 }
 
-/**
+/*
  * Get a list of dates for three weeks before and after the day.
  * @param { Date } inputDate Date of the day.
  * @param { number } adjustDays The difference between the day and Monday.

@@ -36,7 +36,7 @@ export struct WeekCalendarComponent {
     this.homeStore = await initCurrentDateInfo(this.showDate);
   }
 
-  /**
+  /*
    * Switch the week view, swipe left and right to the top and next week after exceeding a certain threshold.
    */
   private weekChange() {

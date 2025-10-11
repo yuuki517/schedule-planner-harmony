@@ -18,7 +18,7 @@
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ComponentContent, promptAction, UIContext } from '@kit.ArkUI';
 
-/**
+/*
  * A global custom popup controller that does not rely on UI components.
  */
 export class PromptActionClass {
@@ -38,7 +38,7 @@ export class PromptActionClass {
     PromptActionClass.options = options;
   }
 
-  /**
+  /*
    * Open the custom dialog.
    */
   static openDialog() {
@@ -56,7 +56,7 @@ export class PromptActionClass {
     }
   }
 
-  /**
+  /*
    * Close the custom dialog.
    */
   static closeDialog() {
@@ -74,7 +74,7 @@ export class PromptActionClass {
     }
   }
 
-  /**
+  /*
    * Update the custom dialog options.
    * @param { promptAction.BaseDialogOptions } options options that need to be updated.
    */

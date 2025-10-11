@@ -15,7 +15,7 @@
  *
  */
 
-/**
+/*
  * Tab navigation default information.
  */
 export interface NavItem {

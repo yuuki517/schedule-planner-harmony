@@ -19,7 +19,7 @@ import { Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { FormInfo } from 'common';
-import FormUtils from 'common/src/main/ets/utils/FormUtils';
+import { FormUtils } from 'common/src/main/ets/utils/FormUtils';
 
 // hilog tag
 const TAG = 'DefaultFormAbility';

@@ -19,10 +19,10 @@ import { JSON } from '@kit.ArkTS';
 import { CommonConstants as Const } from 'common';
 import { getAchievementDoneIndex } from '../model/AchievementModel';
 import { TaskInfoDialogParams } from './dialog/TaskInfoDialogParams';
-import PreferencesUtils from 'common/src/main/ets/utils/PreferencesUtils';
+import { PreferencesUtils } from 'common/src/main/ets/utils/PreferencesUtils';
 import { openAchievementCustomDialog } from '../views/dialog/AchievementDialog';
 
-/**
+/*
  * Global achievement information storage.
  */
 @Observed
@@ -38,7 +38,7 @@ export class AchievementStore {
   }
 }
 
-/**
+/*
  * Initialize global achievement information.
  */
 export async function initAchievementStore() {
@@ -49,7 +49,7 @@ export async function initAchievementStore() {
   return new AchievementStore(maxConsecutiveDays, currentConsecutiveDays, currentDayStatus)
 }
 
-/**
+/*
  * Update the information when the achievement information changes.
  * @param { TaskInfoDialogParams } params Task info for clock custom dialog parameters.
  */

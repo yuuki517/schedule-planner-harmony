@@ -19,7 +19,7 @@ import { DayTaskInfo } from 'common';
 import { HomeStore } from '../HomeStore';
 import { AchievementStore } from '../AchievementStore';
 
-/**
+/*
  * Task info for clock custom dialog parameters.
  */
 export class TaskInfoDialogParams {

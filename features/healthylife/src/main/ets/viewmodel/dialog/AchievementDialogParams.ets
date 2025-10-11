@@ -15,7 +15,7 @@
  *
  */
 
-/**
+/*
  * Achievement completion animation custom dialog parameters.
  */
 export class AchievementDialogParams {
