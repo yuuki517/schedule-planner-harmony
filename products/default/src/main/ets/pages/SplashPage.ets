@@ -83,13 +83,7 @@ struct SplashPage {
 
   aboutToAppear() {
     preferences.getPreferences(this.context, H_STORE).then((res) => {
-      res.get(IS_PRIVACY, false).then((isPrivate) => {
-        if (isPrivate === true) {
-          this.jumpAdPage();
-        } else {
-          this.dialogController.open();
-        }
-      });
+      this.jumpAdPage();
     }).catch((err: BusinessError) => {
       hilog.error(0x0000, TAG, `Get preferences failed, code is ${err.code},message is ${err.message}`);
     })

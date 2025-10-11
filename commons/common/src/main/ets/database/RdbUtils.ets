@@ -23,7 +23,7 @@ import { RdbConstants } from '../constants/RdbConstants';
 // hilog tag.
 const TAG: string = 'RdbUtils';
 
-class RdbUtils {
+export class RdbUtils {
   // database connection instance.
   static rdbStore?: relationalStore.RdbStore;
 
@@ -114,5 +114,3 @@ class RdbUtils {
     }
   }
 }
-
-export default new RdbUtils();

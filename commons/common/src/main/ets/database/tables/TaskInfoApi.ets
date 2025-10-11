@@ -18,7 +18,7 @@
 import { relationalStore } from '@kit.ArkData';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
-import RdbUtils from '../RdbUtils';
+import { RdbUtils } from '../RdbUtils';
 import DayInfoApi from './DayInfoApi';
 import { TableApi } from './TableApi';
 import DayTaskInfoApi from './DayTaskInfoApi';

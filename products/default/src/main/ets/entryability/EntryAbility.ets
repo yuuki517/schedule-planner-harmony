@@ -19,7 +19,7 @@ import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { convertDate2Str, RdbConstants } from 'common';
-import RdbUtils from 'common/src/main/ets/database/RdbUtils';
+import { RdbUtils } from 'common/src/main/ets/database/RdbUtils';
 import DayInfoApi from 'common/src/main/ets/database/tables/DayInfoApi';
 import TaskInfoApi from 'common/src/main/ets/database/tables/TaskInfoApi';
 import PreferencesUtils from 'common/src/main/ets/utils/PreferencesUtils';

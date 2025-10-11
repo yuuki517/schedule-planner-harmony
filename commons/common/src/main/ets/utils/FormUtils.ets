@@ -19,7 +19,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { formBindingData, formProvider } from '@kit.FormKit';
 import { convertDate2Str } from './Utils';
-import RdbUtils from '../database/RdbUtils';
+import { RdbUtils } from '../database/RdbUtils';
 import { DayInfo } from '../model/database/DayInfo';
 import { FormInfo } from '../model/database/FormInfo';
 import DayInfoApi from '../database/tables/DayInfoApi';

@@ -2,171 +2,171 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "Healthy life"
+      "value": "健康生活"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "There are always new ways to play sports"
+      "value": "运动总有新玩法"
     },
     {
       "name": "EntryAbility_label",
-      "value": "Healthy life"
+      "value": "健康生活"
     },
     {
       "name": "healthy_life",
-      "value": "Healthy life"
+      "value": "健康生活"
     },
     {
       "name": "target_progress",
-      "value": "Target progress"
+      "value": "目标进度"
     },
     {
       "name": "task_list",
-      "value": "Task list"
+      "value": "任务列表"
     },
     {
       "name": "week_shorthand_mon",
-      "value": "Mon"
+      "value": "一"
     },
     {
       "name": "week_shorthand_tue",
-      "value": "Tue"
+      "value": "二"
     },
     {
       "name": "week_shorthand_wed",
-      "value": "Wed"
+      "value": "三"
     },
     {
       "name": "week_shorthand_thu",
-      "value": "Thu"
+      "value": "四"
     },
     {
       "name": "week_shorthand_fri",
-      "value": "Fri"
+      "value": "五"
     },
     {
       "name": "week_shorthand_sat",
-      "value": "Sat"
+      "value": "六"
     },
     {
       "name": "week_shorthand_sun",
-      "value": "Sun"
+      "value": "日"
     },
     {
       "name": "no_task",
-      "value": "There are no tasks, please add tasks"
+      "value": "暂无任务，请添加任务"
     },
     {
       "name": "task_getup",
-      "value": "Early riser"
+      "value": "早起"
     },
     {
       "name": "task_drink",
-      "value": "Drink"
+      "value": "喝水"
     },
     {
       "name": "task_apple",
-      "value": "Eat apples"
+      "value": "吃苹果"
     },
     {
       "name": "task_smile",
-      "value": "Smile every day"
+      "value": "每日微笑"
     },
     {
       "name": "task_brush",
-      "value": "Brush your teeth daily"
+      "value": "每日刷牙"
     },
     {
       "name": "task_sleep",
-      "value": "Go to bed early"
+      "value": "早睡"
     },
     {
       "name": "clock_in",
-      "value": "Clock"
+      "value": "打卡"
     },
     {
       "name": "got_it",
-      "value": "Got it"
+      "value": "知道了"
     },
     {
       "name": "was_done",
-      "value": "Was done"
+      "value": "已完成"
     },
     {
       "name": "my_achievement",
-      "value": "My achievement"
+      "value": "我的成就"
     },
     {
       "name": "achievement_level",
-      "value": "Achieved for %s consecutive day"
+      "value": "连续%s天达成"
     },
     {
       "name": "mine_personal_data",
-      "value": "Personal data"
+      "value": "个人资料"
     },
     {
       "name": "mine_check_updates",
-      "value": "Check updates"
+      "value": "检查更新"
     },
     {
       "name": "mine_about",
-      "value": "About"
+      "value": "关于"
     },
     {
       "name": "add_task",
-      "value": "Add task"
+      "value": "添加任务"
     },
     {
       "name": "edit_task",
-      "value": "Edit task"
+      "value": "编辑任务"
     },
     {
       "name": "task_opened",
-      "value": "Opened"
+      "value": "已开启"
     },
     {
       "name": "target_setting",
-      "value": "Target setting"
+      "value": "目标设置"
     },
     {
       "name": "complete",
-      "value": "Complete"
+      "value": "完成"
     },
     {
       "name": "tab_home",
-      "value": "Home"
+      "value": "首页"
     },
     {
       "name": "tab_achievement",
-      "value": "Achievement"
+      "value": "成就"
     },
     {
       "name": "tab_mine",
-      "value": "Mine"
+      "value": "我的"
     },
     {
       "name": "skip_ads",
-      "value": "Skip ads %d s"
-    },
-    {
-      "name": "confirm",
-      "value": "Sure"
-    },
-    {
-      "name": "exit",
-      "value": "Exit"
+      "value": "跳过广告 %d s"
     },
     {
       "name": "privacy_title",
-      "value": "Please enable the \"XX\" permission in the \"Healthy Life\" permission management"
+      "value": "请在“健康生活”权限管理中开启“XX”权限"
     },
     {
       "name": "privacy_desc",
-      "value": "The function supports XX... (Function introduction)"
+      "value": "该功能支持XX…（功能介绍）"
+    },
+    {
+      "name": "confirm",
+      "value": "确定"
+    },
+    {
+      "name": "exit",
+      "value": "退出"
     },
     {
       "name": "cancel",
-      "value": "Cancel"
+      "value": "取消"
     },
     {
       "name": "user_name",
@@ -178,7 +178,7 @@
     },
     {
       "name": "user_signature",
-      "value": "This is a short personal signature"
+      "value": "这是一条简短的个人签名"
     },
     {
       "name": "unit_liter",
@@ -186,15 +186,15 @@
     },
     {
       "name": "unit_number",
-      "value": "number"
+      "value": "个"
     },
     {
       "name": "unit_times",
-      "value": "times"
+      "value": "次"
     },
     {
       "name": "unit_pre_day",
-      "value": "/ day"
+      "value": "/ 天"
     }
   ]
 }
