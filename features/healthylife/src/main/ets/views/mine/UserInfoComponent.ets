@@ -17,6 +17,7 @@
 
 import { CommonConstants as Const } from 'common';
 
+@Reusable
 @Component
 export struct UserInfoComponent {
   build() {
