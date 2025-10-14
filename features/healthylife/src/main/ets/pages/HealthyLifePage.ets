@@ -35,11 +35,15 @@ export struct HealthyLifePage {
   private windowClass = this.context.windowStage.getMainWindowSync();
 
   async aboutToAppear(): Promise<void> {
-    await this.windowClass.setWindowLayoutFullScreen(true);
-    await this.windowClass.setWindowSystemBarProperties({
-      statusBarColor: '#00000000',
-      statusBarContentColor: '#FF000000'
-    })
+    try {
+      await this.windowClass.setWindowLayoutFullScreen(true);
+      await this.windowClass.setWindowSystemBarProperties({
+        statusBarColor: '#00000000',
+        statusBarContentColor: '#FF000000'
+      })
+    } catch (error) {
+      console.error(`an error occurred: ${error}`);
+    }
     await DayInfoApi.initDayInfo(convertDate2Str(new Date()));
     this.achievementStore = await initAchievementStore();
   }

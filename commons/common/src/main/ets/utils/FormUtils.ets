@@ -33,7 +33,6 @@ import { CommonConstants as Const } from '../constants/CommonConstants';
 const TAG: string = 'FormUtils';
 
 export class FormUtils {
-  private static date = new Date();
   /*
    * Added service card information.
    * @param { Context } context context.
@@ -71,7 +70,8 @@ export class FormUtils {
    * @returns { void }
    */
   public static updateByFormName(formInfo: FormInfo): void {
-    const date = convertDate2Str(FormUtils.date);
+    // eslint-disable-next-line @performance/reuse-date-instances-check
+    const date = convertDate2Str(new Date());
     let updateDate: FormStorageModel = {};
     if (formInfo.formName === Const.FORM_NAME_AGENCY &&
       Number(formInfo.formDimension) === Const.DEFAULT_DIMENSION_2X4) {

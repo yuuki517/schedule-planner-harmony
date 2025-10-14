@@ -186,18 +186,24 @@ class TaskInfoApi implements TableApi<TaskInfo> {
   }
 
   convertResultSet2Entity(resultSet: relationalStore.ResultSet): TaskInfo {
-    const taskId = resultSet.getValue(resultSet.getColumnIndex('taskId')) as number;
-    const isOpen = resultSet.getValue(resultSet.getColumnIndex('isOpen')) ? true : false;
-    const targetValue = resultSet.getValue(resultSet.getColumnIndex('targetValue')) as string;
-    const finValue = resultSet.getValue(resultSet.getColumnIndex('finValue')) as string;
-    const isDone = resultSet.getValue(resultSet.getColumnIndex('isDone')) ? true : false;
-    const isAlert = resultSet.getValue(resultSet.getColumnIndex('isAlert')) ? true : false;
-    const alertStartTime = resultSet.getValue(resultSet.getColumnIndex('alertStartTime')) as string;
-    const alertEndTime = resultSet.getValue(resultSet.getColumnIndex('alertEndTime')) as string;
-    const alertFrequency = resultSet.getValue(resultSet.getColumnIndex('alertFrequency')) as string;
-    const reminderId = resultSet.getValue(resultSet.getColumnIndex('reminderId')) as number;
-    return new TaskInfo(taskId, isOpen, targetValue, finValue, isDone, isAlert, alertStartTime, alertEndTime,
-      alertFrequency, reminderId);
+    try {
+      const taskId = resultSet.getValue(resultSet.getColumnIndex('taskId')) as number;
+      const isOpen = resultSet.getValue(resultSet.getColumnIndex('isOpen')) ? true : false;
+      const targetValue = resultSet.getValue(resultSet.getColumnIndex('targetValue')) as string;
+      const finValue = resultSet.getValue(resultSet.getColumnIndex('finValue')) as string;
+      const isDone = resultSet.getValue(resultSet.getColumnIndex('isDone')) ? true : false;
+      const isAlert = resultSet.getValue(resultSet.getColumnIndex('isAlert')) ? true : false;
+      const alertStartTime = resultSet.getValue(resultSet.getColumnIndex('alertStartTime')) as string;
+      const alertEndTime = resultSet.getValue(resultSet.getColumnIndex('alertEndTime')) as string;
+      const alertFrequency = resultSet.getValue(resultSet.getColumnIndex('alertFrequency')) as string;
+      const reminderId = resultSet.getValue(resultSet.getColumnIndex('reminderId')) as number;
+      return new TaskInfo(taskId, isOpen, targetValue, finValue, isDone, isAlert, alertStartTime, alertEndTime,
+        alertFrequency, reminderId);
+    } catch (error) {
+      hilog.error(0x0000, TAG, `an error occurred: ${error}`);
+      return new TaskInfo(-1, false, '', '', false, false, '', '', '', -1);
+    }
+
   }
 
   /*

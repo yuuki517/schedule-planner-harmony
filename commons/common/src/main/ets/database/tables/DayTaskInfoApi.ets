@@ -171,13 +171,18 @@ class DayTaskInfoApi implements TableApi<DayTaskInfo> {
   }
 
   convertResultSet2Entity(resultSet: relationalStore.ResultSet): DayTaskInfo {
-    const id = resultSet.getValue(resultSet.getColumnIndex('id')) as number;
-    const date = resultSet.getValue(resultSet.getColumnIndex('date')) as string;
-    const taskId = resultSet.getValue(resultSet.getColumnIndex('taskId')) as number;
-    const targetValue = resultSet.getValue(resultSet.getColumnIndex('targetValue')) as string;
-    const finValue = resultSet.getValue(resultSet.getColumnIndex('finValue')) as string;
-    const isDone = resultSet.getValue(resultSet.getColumnIndex('isDone')) ? true : false;
-    return new DayTaskInfo(id, date, taskId, targetValue, finValue, isDone);
+    try {
+      const id = resultSet.getValue(resultSet.getColumnIndex('id')) as number;
+      const date = resultSet.getValue(resultSet.getColumnIndex('date')) as string;
+      const taskId = resultSet.getValue(resultSet.getColumnIndex('taskId')) as number;
+      const targetValue = resultSet.getValue(resultSet.getColumnIndex('targetValue')) as string;
+      const finValue = resultSet.getValue(resultSet.getColumnIndex('finValue')) as string;
+      const isDone = resultSet.getValue(resultSet.getColumnIndex('isDone')) ? true : false;
+      return new DayTaskInfo(id, date, taskId, targetValue, finValue, isDone);
+    } catch (error) {
+      hilog.error(0x0000, TAG, `an error occurred: ${error}`);
+      return new DayTaskInfo(0, '', 0, '', '', false);
+    }
   }
 
   /*

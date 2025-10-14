@@ -113,8 +113,9 @@ function getWeekDates(inputDate: Date, adjustDays: number): Date[] {
   monday.setDate(inputDate.getDate() - adjustDays - Const.WEEK_DAY_NUM);
 
   const dates: Date[] = [];
-  const currentDate = new Date(monday);
   for (let i = 0; i < Const.WEEK_DAY_NUM * 3; i++) {
+    // eslint-disable-next-line @performance/reuse-date-instances-check
+    const currentDate = new Date(monday);
     currentDate.setDate(monday.getDate() + i);
     dates.push(currentDate);
   }
