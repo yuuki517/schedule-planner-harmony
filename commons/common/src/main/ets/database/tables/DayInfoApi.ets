@@ -188,10 +188,15 @@ class DayInfoApi implements TableApi<DayInfo> {
   }
 
   convertResultSet2Entity(resultSet: relationalStore.ResultSet): DayInfo {
-    const date = resultSet.getValue(resultSet.getColumnIndex('date')) as string;
-    const targetTaskNum = resultSet.getValue(resultSet.getColumnIndex('targetTaskNum')) as number;
-    const finTaskNum = resultSet.getValue(resultSet.getColumnIndex('finTaskNum')) as number;
-    return new DayInfo(date, targetTaskNum, finTaskNum);
+    try {
+      const date = resultSet.getValue(resultSet.getColumnIndex('date')) as string;
+      const targetTaskNum = resultSet.getValue(resultSet.getColumnIndex('targetTaskNum')) as number;
+      const finTaskNum = resultSet.getValue(resultSet.getColumnIndex('finTaskNum')) as number;
+      return new DayInfo(date, targetTaskNum, finTaskNum);
+    } catch (error) {
+      hilog.error(0x0000, TAG, `an error occurred: ${error}`);
+      return new DayInfo('', -1, -1);
+    }
   }
 
   /*

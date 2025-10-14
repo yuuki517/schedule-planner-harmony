@@ -180,10 +180,15 @@ class FormInfoApi implements TableApi<FormInfo> {
   }
 
   convertResultSet2Entity(resultSet: relationalStore.ResultSet): FormInfo {
-    const formId = resultSet.getValue(resultSet.getColumnIndex('formId')) as string;
-    const formName = resultSet.getValue(resultSet.getColumnIndex('formName')) as string;
-    const formDimension = resultSet.getValue(resultSet.getColumnIndex('formDimension')) as number;
-    return new FormInfo(formId, formName, formDimension);
+    try {
+      const formId = resultSet.getValue(resultSet.getColumnIndex('formId')) as string;
+      const formName = resultSet.getValue(resultSet.getColumnIndex('formName')) as string;
+      const formDimension = resultSet.getValue(resultSet.getColumnIndex('formDimension')) as number;
+      return new FormInfo(formId, formName, formDimension);
+    } catch (error) {
+      hilog.error(0x0000, TAG, `an error occurred: ${error}`);
+      return new FormInfo('', '', -1);
+    }
   }
 
   /*
