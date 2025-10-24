@@ -120,7 +120,8 @@ export class CommonConstants {
   static readonly DEFAULT_MENU_INFO: Resource[] = [
     $r('app.string.mine_personal_data'),
     $r('app.string.mine_check_updates'),
-    $r('app.string.mine_about')
+    $r('app.string.mine_about'),
+    $r('app.string.mine_achievement')
   ];
   // Card Constants
   static readonly DEFAULT_DIMENSION_2X2 = 2;

@@ -20,54 +20,64 @@ import { CommonConstants as Const } from 'common';
 @Reusable
 @Component
 export struct MineMenuComponent {
-  build() {
-    List() {
-      ForEach(Const.DEFAULT_MENU_INFO, (item: Resource) => {
-        ListItem() {
-          Flex({
-            justifyContent: FlexAlign.SpaceBetween,
-            alignItems: ItemAlign.Center
-          }) {
-            Text(item)
-              .fontSize($r('app.float.default_16'))
-              .height($r('app.float.default_40'))
+  @Consume('pathStack') pageStack: NavPathStack;
 
-            SymbolGlyph($r('sys.symbol.chevron_right'))
-              .fontColor([$r('sys.color.icon_secondary')])
-              .fontWeight(FontWeight.Normal)
-              .fontSize($r('app.float.default_24'))
+  build() {
+    NavDestination() {
+      List() {
+        ForEach(Const.DEFAULT_MENU_INFO, (item: Resource, index) => {
+          ListItem() {
+            Flex({
+              justifyContent: FlexAlign.SpaceBetween,
+              alignItems: ItemAlign.Center
+            }) {
+              Text(item)
+                .fontSize($r('app.float.default_16'))
+                .height($r('app.float.default_40'))
+
+              SymbolGlyph($r('sys.symbol.chevron_right'))
+                .fontColor([$r('sys.color.icon_secondary')])
+                .fontWeight(FontWeight.Normal)
+                .fontSize($r('app.float.default_24'))
+            }
           }
-        }
-        .backgroundColor($r('sys.color.background_primary'))
-        .margin({
-          left: $r('app.float.default_24'),
-          right: $r('app.float.default_24')
-        })
-        .height($r('app.float.default_48'))
-        .border({
-          width: {
-            bottom: $r('app.float.default_1')
-          },
-          color: $r('sys.color.background_tertiary')
-        })
-      }, (item: Resource, index: number) => index + JSON.stringify(item));
-    }
-    .border({
-      radius: {
-        topLeft: $r('app.float.default_24'),
-        topRight: $r('app.float.default_24')
+          .backgroundColor($r('sys.color.background_primary'))
+          .margin({
+            left: $r('app.float.default_24'),
+            right: $r('app.float.default_24')
+          })
+          .height($r('app.float.default_48'))
+          .border({
+            width: {
+              bottom: $r('app.float.default_1')
+            },
+            color: $r('sys.color.background_tertiary')
+          })
+          .onClick(() => {
+            if (index === 3) {
+              this.pageStack.pushPathByName('AchievementComponent', '');
+            }
+          })
+        }, (item: Resource, index: number) => index + JSON.stringify(item));
       }
-    })
-    .width(Const.THOUSANDTH_1000)
-    .height(Const.THOUSANDTH_560)
-    .backgroundColor($r('sys.color.background_primary'))
-    .margin({
-      top: $r('app.float.default_24')
-    })
-    .padding({
-      top: $r('app.float.default_16')
-    })
-    .flexGrow(Const.FLEX_GROW_1)
-    .clip(true)
+      .border({
+        radius: {
+          topLeft: $r('app.float.default_24'),
+          topRight: $r('app.float.default_24')
+        }
+      })
+      .width(Const.THOUSANDTH_1000)
+      .height(Const.THOUSANDTH_560)
+      .backgroundColor($r('sys.color.background_primary'))
+      .margin({
+        top: $r('app.float.default_24')
+      })
+      .padding({
+        top: $r('app.float.default_16')
+      })
+      .flexGrow(Const.FLEX_GROW_1)
+      .clip(true)
+    }
+
   }
 }

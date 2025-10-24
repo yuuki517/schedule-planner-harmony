@@ -62,7 +62,7 @@ export struct HomeComponent {
             Column() {
               Text($r('app.string.healthy_life'))
                 .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
-                .fontWeight(FontWeight.Regular)
+                .fontWeight(FontWeight.Bold)
                 .fontColor($r(`sys.color.font_primary`))
                 .fontSize($r('app.float.default_24'))
                 .width(Const.THOUSANDTH_1000)

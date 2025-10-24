@@ -3,11 +3,63 @@ import { AchievementStore } from '../viewmodel/AchievementStore';
 import { openAchievementCustomDialog } from './dialog/AchievementDialog';
 import { AchievementItem, AchievementList } from '../model/AchievementModel';
 
+@Builder
+export function achBuilder() {
+  AchievementComponent();
+}
+
 @Component
 export struct AchievementComponent {
   @Consume achievementStore: AchievementStore;
 
   build() {
+    NavDestination() {
+      Column() {
+        // Text($r('app.string.my_achievement'))
+        //   .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
+        //   .fontWeight(FontWeight.Regular)
+        //   .fontColor($r(`sys.color.font_on_primary`))
+        //   .fontSize($r('app.float.default_24'))
+        //   .width(Const.THOUSANDTH_1000)
+        //   .height($r('app.float.default_56'))
+        //   .padding({
+        //     left: Const.THOUSANDTH_66,
+        //     top: Const.THOUSANDTH_150
+        //   })
+
+        Flex({
+          direction: FlexDirection.Row,
+          wrap: FlexWrap.Wrap
+        }) {
+          ForEach(AchievementList, (item: AchievementItem, index: number) => {
+            this.achievementBuilder(index, item)
+          }, (item: AchievementItem, index: number) => index + JSON.stringify(item))
+        }
+        .width(Const.THOUSANDTH_1000)
+      }
+      .width(Const.THOUSANDTH_1000)
+      .height(Const.THOUSANDTH_1000)
+      .backgroundColor($r('app.color.ach_bg_color'))
+      .justifyContent(FlexAlign.Start)
+      .padding({
+        left: $r('app.float.default_10'),
+        right: $r('app.float.default_10'),
+        bottom: $r('app.float.default_10')
+      })
+    }
+    .size({
+      width: Const.THOUSANDTH_1000,
+      height: Const.THOUSANDTH_1000
+    })
+    .backgroundColor($r('app.color.ach_bg_color'))
+    .title(this.customTitleBuilder())
+    .padding({
+      top: $r('app.float.default_40')
+    })
+  }
+
+  @Builder
+  customTitleBuilder() {
     Column() {
       Text($r('app.string.my_achievement'))
         .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
@@ -16,30 +68,7 @@ export struct AchievementComponent {
         .fontSize($r('app.float.default_24'))
         .width(Const.THOUSANDTH_1000)
         .height($r('app.float.default_56'))
-        .padding({
-          left: Const.THOUSANDTH_66,
-          top: Const.THOUSANDTH_150
-        })
-
-      Flex({
-        direction: FlexDirection.Row,
-        wrap: FlexWrap.Wrap
-      }) {
-        ForEach(AchievementList, (item: AchievementItem, index: number) => {
-          this.achievementBuilder(index, item)
-        }, (item: AchievementItem, index: number) => index + JSON.stringify(item))
-      }
-      .width(Const.THOUSANDTH_1000)
     }
-    .width(Const.THOUSANDTH_1000)
-    .height(Const.THOUSANDTH_1000)
-    .backgroundColor($r('app.color.ach_bg_color'))
-    .justifyContent(FlexAlign.Start)
-    .padding({
-      left: $r('app.float.default_10'),
-      right: $r('app.float.default_10'),
-      bottom: $r('app.float.default_10')
-    })
   }
 
   @Builder

@@ -86,7 +86,7 @@ export struct TaskListComponent {
     }
     .width(Const.THOUSANDTH_1000)
     .height($r('app.float.default_62'))
-    .borderRadius($r('app.float.default_24'))
+    .borderRadius($r('app.float.default_12'))
     .padding({
       left: Const.THOUSANDTH_50,
       right: Const.THOUSANDTH_50

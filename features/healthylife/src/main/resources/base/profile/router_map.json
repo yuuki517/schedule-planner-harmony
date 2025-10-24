@@ -14,6 +14,11 @@
       "name": "EditTaskComponent",
       "pageSourceFile": "src/main/ets/views/task/EditTaskComponent.ets",
       "buildFunction": "editTaskBuilder"
+    },
+    {
+      "name": "AchievementComponent",
+      "pageSourceFile": "src/main/ets/views/AchievementComponent.ets",
+      "buildFunction": "achBuilder"
     }
   ]
 }

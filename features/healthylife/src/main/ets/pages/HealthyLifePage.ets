@@ -56,10 +56,10 @@ export struct HealthyLifePage {
         }
         .tabBar(this.tabBuilder(TabId.HOME))
 
-        TabContent() {
-          AchievementComponent()
-        }
-        .tabBar(this.tabBuilder(TabId.ACHIEVEMENT))
+        // TabContent() {
+        //   AchievementComponent()
+        // }
+        // .tabBar(this.tabBuilder(TabId.ACHIEVEMENT))
 
         TabContent() {
           MineComponent()
