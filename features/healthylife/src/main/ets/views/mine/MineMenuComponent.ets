@@ -20,64 +20,43 @@ import { CommonConstants as Const } from 'common';
 @Reusable
 @Component
 export struct MineMenuComponent {
-  @Consume('pathStack') pageStack: NavPathStack;
-
   build() {
-    NavDestination() {
-      List() {
-        ForEach(Const.DEFAULT_MENU_INFO, (item: Resource, index) => {
-          ListItem() {
-            Flex({
-              justifyContent: FlexAlign.SpaceBetween,
-              alignItems: ItemAlign.Center
-            }) {
-              Text(item)
-                .fontSize($r('app.float.default_16'))
-                .height($r('app.float.default_40'))
-
-              SymbolGlyph($r('sys.symbol.chevron_right'))
-                .fontColor([$r('sys.color.icon_secondary')])
-                .fontWeight(FontWeight.Normal)
-                .fontSize($r('app.float.default_24'))
-            }
+    List() {
+      ForEach(Const.DEFAULT_MENU_INFO, (item: Resource, index: number) => {
+        ListItem() {
+          Flex({
+            justifyContent: FlexAlign.Start,
+            alignItems: ItemAlign.Center,
+          }) {
+            Image(index === 0 ? $r('app.media.personal_profile') : $r('app.media.arrow_up_circle'))
+              .width($r('app.float.default_28'))
+              .height($r('app.float.default_28'))
+            Blank().width($r('app.float.default_12'))
+            Text(item)
+              .fontSize($r('app.float.default_18'))
+              .fontWeight(FontWeight.Bold)
+            Blank();
+            SymbolGlyph($r('sys.symbol.chevron_right'))
+              .fontColor([$r('sys.color.icon_secondary')])
+              .fontWeight(FontWeight.Normal)
+              .fontSize($r('app.float.default_24'))
           }
-          .backgroundColor($r('sys.color.background_primary'))
-          .margin({
-            left: $r('app.float.default_24'),
-            right: $r('app.float.default_24')
-          })
-          .height($r('app.float.default_48'))
-          .border({
-            width: {
-              bottom: $r('app.float.default_1')
-            },
-            color: $r('sys.color.background_tertiary')
-          })
-          .onClick(() => {
-            if (index === 3) {
-              this.pageStack.pushPathByName('AchievementComponent', '');
-            }
-          })
-        }, (item: Resource, index: number) => index + JSON.stringify(item));
-      }
-      .border({
-        radius: {
-          topLeft: $r('app.float.default_24'),
-          topRight: $r('app.float.default_24')
         }
-      })
-      .width(Const.THOUSANDTH_1000)
-      .height(Const.THOUSANDTH_560)
-      .backgroundColor($r('sys.color.background_primary'))
-      .margin({
-        top: $r('app.float.default_24')
-      })
-      .padding({
-        top: $r('app.float.default_16')
-      })
-      .flexGrow(Const.FLEX_GROW_1)
-      .clip(true)
+        .align(Alignment.Center)
+        .backgroundColor($r('sys.color.background_primary'))
+        .height($r('app.float.default_48'))
+        .border({
+          width: {
+            bottom: index === Const.DEFAULT_MENU_INFO.length - 1 ? 0 : $r('app.float.default_1')
+          },
+          color: $r('sys.color.background_tertiary')
+        })
+      }, (item: Resource, index: number) => index + JSON.stringify(item));
     }
-
+    .width(Const.THOUSANDTH_1000)
+    .height(Const.THOUSANDTH_780)
+    .backgroundColor($r('sys.color.background_primary'))
+    .flexGrow(Const.FLEX_GROW_1)
+    .clip(true)
   }
 }

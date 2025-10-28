@@ -29,12 +29,15 @@ export class CommonConstants {
   static readonly THOUSANDTH_66: string = '6.6%';
   static readonly THOUSANDTH_80: string = '8%';
   static readonly THOUSANDTH_100: string = '10%';
+  static readonly THOUSANDTH_130: string = '13%';
   static readonly THOUSANDTH_150: string = '15%';
+  static readonly THOUSANDTH_200: string = '20%';
   static readonly THOUSANDTH_333: string = '33.3%';
   static readonly THOUSANDTH_400: string = '40%';
   static readonly THOUSANDTH_420: string = '42%';
   static readonly THOUSANDTH_500: string = '50%';
   static readonly THOUSANDTH_560: string = '56%';
+  static readonly THOUSANDTH_780: string = '78%';
   static readonly THOUSANDTH_800: string = '80%';
   static readonly THOUSANDTH_830: string = '83%';
   static readonly THOUSANDTH_880: string = '88%';
@@ -120,8 +123,8 @@ export class CommonConstants {
   static readonly DEFAULT_MENU_INFO: Resource[] = [
     $r('app.string.mine_personal_data'),
     $r('app.string.mine_check_updates'),
-    $r('app.string.mine_about'),
-    $r('app.string.mine_achievement')
+    // $r('app.string.mine_about'),
+    // $r('app.string.mine_achievement')
   ];
   // Card Constants
   static readonly DEFAULT_DIMENSION_2X2 = 2;

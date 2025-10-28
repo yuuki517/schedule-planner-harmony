@@ -15,18 +15,6 @@ export struct AchievementComponent {
   build() {
     NavDestination() {
       Column() {
-        // Text($r('app.string.my_achievement'))
-        //   .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
-        //   .fontWeight(FontWeight.Regular)
-        //   .fontColor($r(`sys.color.font_on_primary`))
-        //   .fontSize($r('app.float.default_24'))
-        //   .width(Const.THOUSANDTH_1000)
-        //   .height($r('app.float.default_56'))
-        //   .padding({
-        //     left: Const.THOUSANDTH_66,
-        //     top: Const.THOUSANDTH_150
-        //   })
-
         Flex({
           direction: FlexDirection.Row,
           wrap: FlexWrap.Wrap
@@ -53,6 +41,7 @@ export struct AchievementComponent {
     })
     .backgroundColor($r('app.color.ach_bg_color'))
     .title(this.customTitleBuilder())
+    .backButtonIcon($r('app.media.heal_back'))
     .padding({
       top: $r('app.float.default_40')
     })

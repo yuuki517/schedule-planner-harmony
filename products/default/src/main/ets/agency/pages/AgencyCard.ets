@@ -130,6 +130,9 @@ struct AgencyCard {
         .width($r('app.float.agency_image_size'))
         .height($r('app.float.agency_image_size'))
         .objectFit(ImageFit.Contain)
+      Text(taskBaseInfoList[taskItem.taskId].name)
+        .fontSize('18fp')
+        .fontWeight(FontWeight.Medium)
 
       Row() {
         if (taskBaseInfoList[taskItem.taskId].step === 0) {

@@ -42,17 +42,13 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
     Row() {
       Text($r('app.string.target_setting'))
         .fontSize($r('app.float.default_20'))
+        .fontWeight(FontWeight.Bold)
         .margin({
           right: $r('app.float.default_12')
         })
-
-      if (params.taskBaseInfo.limit) {
-        Text(`(${params.taskBaseInfo.limit})`)
-          .fontSize($r('app.float.default_16'))
-      }
     }
     .width(Const.THOUSANDTH_1000)
-    .justifyContent(FlexAlign.Start)
+    .justifyContent(FlexAlign.Center)
 
     if (params.taskBaseInfo.pickerType === PickerType.TIME) {
       TimePicker({
@@ -89,7 +85,7 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
         })
 
       Text($r('app.string.confirm'))
-        .fontColor($r('sys.color.brand'))
+        .fontColor('red')
         .fontSize($r('app.float.default_20'))
         .onClick(() => {
           params.taskInfo.targetValue = params.selectedValue;
@@ -104,7 +100,7 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
     })
   }
   .backgroundColor($r('sys.color.background_primary'))
-  .height(Const.THOUSANDTH_500)
+  .height(Const.THOUSANDTH_420)
   .justifyContent(FlexAlign.SpaceAround)
   .borderRadius($r('app.float.default_24'))
   .margin($r('app.float.default_18'))

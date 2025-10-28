@@ -1,19 +1,7 @@
 {
   "app": {
     "signingConfigs": [
-      {
-        "name": "default",
-        "type": "HarmonyOS",
-        "material": {
-          "certpath": "C:\\Users\\HZQ\\.ohos\\config\\default_HealthyLife_1_o777g6FjNQ8ax532Q9BlwVKQahJclkWpIitf26kmh8o=.cer",
-          "keyAlias": "debugKey",
-          "keyPassword": "0000001BCE39D27C6B5A0C4F65ECA282A2F5A8952E840145F66F009CB888E67531ADA2DF043643A5934096",
-          "profile": "C:\\Users\\HZQ\\.ohos\\config\\default_HealthyLife_1_o777g6FjNQ8ax532Q9BlwVKQahJclkWpIitf26kmh8o=.p7b",
-          "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\HZQ\\.ohos\\config\\default_HealthyLife_1_o777g6FjNQ8ax532Q9BlwVKQahJclkWpIitf26kmh8o=.p12",
-          "storePassword": "0000001B3B18EFD7D2B160F5260F62F9BAFFD63A7536297FABF839400E23FDA8FBC55C373358D0D455A5C3"
-        }
-      }
+
     ],
     "products": [
       {
