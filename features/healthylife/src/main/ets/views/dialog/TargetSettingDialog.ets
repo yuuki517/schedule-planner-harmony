@@ -44,6 +44,7 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
         .fontSize($r('app.float.default_20'))
         .fontWeight(FontWeight.Bold)
         .margin({
+          top: $r('app.float.default_12'),
           right: $r('app.float.default_12')
         })
     }
@@ -85,7 +86,7 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
         })
 
       Text($r('app.string.confirm'))
-        .fontColor('red')
+        .fontColor($r('app.color.button_red'))
         .fontSize($r('app.float.default_20'))
         .onClick(() => {
           params.taskInfo.targetValue = params.selectedValue;
@@ -102,7 +103,7 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
   .backgroundColor($r('sys.color.background_primary'))
   .height(Const.THOUSANDTH_420)
   .justifyContent(FlexAlign.SpaceAround)
-  .borderRadius($r('app.float.default_24'))
+  .borderRadius($r('app.float.default_32'))
   .margin($r('app.float.default_18'))
   .padding($r('app.float.default_12'))
 }

@@ -17,6 +17,10 @@
       "value": "#66FFFFFF"
     },
     {
+      "name": "button_red",
+      "value": "#E84026"
+    },
+    {
       "name": "ach_bg_color",
       "value": "#000000"
     }
