@@ -115,7 +115,7 @@ struct AgencyCard {
           bottom: $r('app.float.agency_padding_bottom')
         })
         .lanes(this.LIST_TWO_LANES)
-        .backgroundColor($r("app.color.list_background_color"))
+        .backgroundColor($r("sys.color.background_tertiary"))
         .width(this.FULL_WIDTH_PERCENT)
         .height(this.FULL_HEIGHT_PERCENT)
       } else {

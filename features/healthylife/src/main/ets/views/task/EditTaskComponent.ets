@@ -121,7 +121,7 @@ export struct EditTaskComponent {
   build() {
     NavDestination() {
       Column({
-        space: $r('app.float.default_16')
+        space: $r('app.float.default_12')
       }) {
         Row() {
           Text(this.taskBaseInfo.name)
@@ -212,7 +212,9 @@ export struct EditTaskComponent {
     })
     .title($r('app.string.edit_task'))
     .padding({
-      top: $r('app.float.default_40')
+      top: $r('app.float.default_40'),
+      left:$r('app.float.default_6'),
+      right:$r('app.float.default_6')
     })
     .backgroundColor($r('sys.color.background_secondary'))
   }

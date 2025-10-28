@@ -39,7 +39,7 @@ export struct UserInfoComponent {
     })
     .backgroundColor($r('sys.color.background_primary'))
     .margin({
-      bottom: $r('app.float.default_8')
+      bottom: $r('app.float.default_6')
     })
   }
 }

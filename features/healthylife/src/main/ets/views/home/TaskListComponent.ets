@@ -38,8 +38,8 @@ export struct TaskListComponent {
       .width(Const.THOUSANDTH_1000)
       .padding({
         top: Const.THOUSANDTH_15,
-        right: Const.THOUSANDTH_33,
-        left: Const.THOUSANDTH_33
+        left:$r('app.float.default_16'),
+        right:$r('app.float.default_16')
       })
     } else {
       Column() {
