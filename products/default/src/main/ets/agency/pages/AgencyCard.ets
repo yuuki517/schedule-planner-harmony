@@ -46,7 +46,7 @@ struct AgencyCard {
   /*
    * The agency component height percentage setting.
    */
-  readonly AGENCY_COMPONENT_HEIGHT: string = '48%';
+  readonly AGENCY_COMPONENT_HEIGHT: string = '45%';
   /*
    * The empty image height percentage setting.
    */
@@ -70,7 +70,7 @@ struct AgencyCard {
   /*
    * The list component space.
    */
-  readonly LIST_SPACE: number = 5;
+  readonly LIST_SPACE: number = 12;
   /*
    * The list component two lanes.
    */
@@ -96,11 +96,12 @@ struct AgencyCard {
     Column() {
       if (this.dayTaskInfos.length > 0) {
         List({ space: this.LIST_SPACE }) {
-          ForEach(this.dayTaskInfos, (taskItem: DayTaskInfo) => {
+          ForEach(this.dayTaskInfos.slice(0, 4), (taskItem: DayTaskInfo) => {
             ListItem() {
               this.AgencyComponent(taskItem)
             }
             .margin({
+              left: $r("app.float.agency_item_margin"),
               right: $r("app.float.agency_item_margin")
             })
             .borderRadius($r("app.float.agency_item_radius"))
@@ -108,7 +109,7 @@ struct AgencyCard {
           }, (item: DayTaskInfo, index: number) => index + JSON.stringify(item))
         }
         .padding({
-          left: $r('app.float.agency_padding_left'),
+          left: $r('app.float.progress_stroke_width'),
           top: $r('app.float.agency_padding_top'),
           right: $r('app.float.agency_padding_right'),
           bottom: $r('app.float.agency_padding_bottom')
