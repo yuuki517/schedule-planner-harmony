@@ -38,7 +38,7 @@ export struct AddTaskComponent {
     NavDestination() {
       if (this.flag) {
         Column({
-          space: $r('app.float.default_16')
+          space: $r('app.float.default_12')
         }) {
           ForEach(this.taskList, (item: TaskInfo, index: number) => {
             this.taskInfoBuilder(item, index)
@@ -56,7 +56,9 @@ export struct AddTaskComponent {
     .backgroundColor($r('sys.color.background_secondary'))
     .title($r('app.string.add_task'))
     .padding({
-      top: $r('app.float.default_40')
+      top: $r('app.float.default_40'),
+      left:$r('app.float.default_6'),
+      right:$r('app.float.default_6')
     })
   }
 

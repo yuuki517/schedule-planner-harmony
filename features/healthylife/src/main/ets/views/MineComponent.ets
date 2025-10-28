@@ -28,23 +28,66 @@ export struct MineComponent {
     Navigation() {
       Column() {
         UserInfoComponent()
-        Row({ space: $r('app.float.default_12') }) {
-          MineMenuComponent()
+        Row({ space: $r('app.float.default_16') }) {
+          Image($r('app.media.personal_profile'))
+            .width($r('app.float.default_28'))
+            .height($r('app.float.default_28'))
+          Text($r('app.string.mine_personal_data'))
+            .fontSize($r('app.float.default_18'))
+            .fontWeight(FontWeight.Bold)
+          Blank();
+          SymbolGlyph($r('sys.symbol.chevron_right'))
+            .fontColor([$r('sys.color.icon_secondary')])
+            .fontWeight(FontWeight.Normal)
+            .fontSize($r('app.float.default_24'))
         }
         .width(Const.THOUSANDTH_940)
-        .height(Const.THOUSANDTH_200)
-        .borderRadius($r('app.float.default_16'))
+        .height(Const.THOUSANDTH_100)
+        .borderRadius({
+          topLeft: $r('app.float.default_16'),
+          topRight: $r('app.float.default_16')
+        })
         .padding({
           left: $r('app.float.default_12'),
           right: $r('app.float.default_12')
         })
         .backgroundColor($r('sys.color.background_primary'))
         .margin({
-          top: $r('app.float.default_8'),
-          bottom: $r('app.float.default_8')
+          top: $r('app.float.default_6')
         })
 
-        Row({ space: $r('app.float.default_12') }) {
+        Divider()
+          .color($r('app.float.default_1'))
+          .width(Const.THOUSANDTH_880)
+        Row({ space: $r('app.float.default_16') }) {
+          Image($r('app.media.arrow_up_circle'))
+            .width($r('app.float.default_28'))
+            .height($r('app.float.default_28'))
+          Text($r('app.string.mine_check_updates'))
+            .fontSize($r('app.float.default_18'))
+            .fontWeight(FontWeight.Bold)
+          Blank();
+          SymbolGlyph($r('sys.symbol.chevron_right'))
+            .fontColor([$r('sys.color.icon_secondary')])
+            .fontWeight(FontWeight.Normal)
+            .fontSize($r('app.float.default_24'))
+        }
+        .width(Const.THOUSANDTH_940)
+        .height(Const.THOUSANDTH_100)
+        .borderRadius({
+          bottomLeft: $r('app.float.default_16'),
+          bottomRight: $r('app.float.default_16')
+        })
+        .padding({
+          left: $r('app.float.default_12'),
+          right: $r('app.float.default_12')
+        })
+        .backgroundColor($r('sys.color.background_primary'))
+        .margin({
+          bottom: $r('app.float.default_6')
+        })
+
+        Row({ space: $r('app.float.default_16') }) {
           Image($r('app.media.star_trophy'))
             .width($r('app.float.default_28'))
             .height($r('app.float.default_28'))
@@ -66,7 +109,7 @@ export struct MineComponent {
         })
         .backgroundColor($r('sys.color.background_primary'))
         .margin({
-          top: $r('app.float.default_8')
+          top: $r('app.float.default_6')
         })
         .onClick(() => {
           this.pageStack.pushPathByName('AchievementComponent', '');

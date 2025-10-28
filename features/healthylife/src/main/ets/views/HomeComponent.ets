@@ -80,14 +80,14 @@ export struct HomeComponent {
 
               Text($r('app.string.task_list'))
                 .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
-                .fontWeight(FontWeight.Regular)
+                .fontWeight(FontWeight.Bold)
                 .fontColor($r(`sys.color.font_primary`))
-                .fontSize($r('app.float.default_16'))
+                .fontSize($r('app.float.default_20'))
                 .width(Const.THOUSANDTH_1000)
                 .padding({
-                  top: Const.THOUSANDTH_15,
-                  bottom: Const.THOUSANDTH_15,
-                  left: Const.THOUSANDTH_33
+                  top: $r('app.float.default_24'),
+                  bottom: $r('app.float.default_8'),
+                  left: $r('app.float.default_16')
                 })
 
               TaskListComponent()
