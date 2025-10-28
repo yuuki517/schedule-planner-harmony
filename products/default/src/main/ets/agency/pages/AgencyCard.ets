@@ -46,7 +46,7 @@ struct AgencyCard {
   /*
    * The agency component height percentage setting.
    */
-  readonly AGENCY_COMPONENT_HEIGHT: string = '30.5%';
+  readonly AGENCY_COMPONENT_HEIGHT: string = '48%';
   /*
    * The empty image height percentage setting.
    */
@@ -130,38 +130,42 @@ struct AgencyCard {
         .width($r('app.float.agency_image_size'))
         .height($r('app.float.agency_image_size'))
         .objectFit(ImageFit.Contain)
-      Text(taskBaseInfoList[taskItem.taskId].name)
-        .fontSize('18fp')
-        .fontWeight(FontWeight.Medium)
+      Column(){
+        Text(taskBaseInfoList[taskItem.taskId].name)
+          .fontSize('18fp')
+          .fontWeight(FontWeight.Medium)
+        Row() {
+          if (taskBaseInfoList[taskItem.taskId].step === 0) {
+            Text(taskItem.isDone ? taskItem.targetValue : this.TARGET_VALUE_SPLICING + taskItem.targetValue)
+              .fontWeight(FontWeight.Normal)
+              .fontColor($r("app.color.text_common_color"))
+              .fontSize($r("app.float.text_common_size"))
+              .opacity(this.TARGET_TEXT_OPACITY)
+              .textAlign(TextAlign.End)
+          } else {
+            Text(taskItem.finValue === '' ? this.CROSS_BAR_SYMBOL : taskItem.finValue)
+              .fontWeight(taskItem.finValue === '' ? FontWeight.Normal : this.TEXT_SLIGHTLY_BOLD)
+              .fontColor(taskItem.finValue === '' ? $r('app.color.hex_common_color') : $r('app.color.text_common_color'))
+              .fontSize(taskItem.finValue === '' ? $r("app.float.text_common_size") : $r('app.float.agency_text_bold'))
 
-      Row() {
-        if (taskBaseInfoList[taskItem.taskId].step === 0) {
-          Text(taskItem.isDone ? taskItem.targetValue : this.TARGET_VALUE_SPLICING + taskItem.targetValue)
-            .fontWeight(FontWeight.Normal)
-            .fontColor($r("app.color.text_common_color"))
-            .fontSize($r("app.float.text_common_size"))
-            .opacity(this.TARGET_TEXT_OPACITY)
-            .textAlign(TextAlign.End)
-        } else {
-          Text(taskItem.finValue === '' ? this.CROSS_BAR_SYMBOL : taskItem.finValue)
-            .fontWeight(taskItem.finValue === '' ? FontWeight.Normal : this.TEXT_SLIGHTLY_BOLD)
-            .fontColor(taskItem.finValue === '' ? $r('app.color.hex_common_color') : $r('app.color.text_common_color'))
-            .fontSize(taskItem.finValue === '' ? $r("app.float.text_common_size") : $r('app.float.agency_text_bold'))
+            Text(this.SLASHES + taskItem.targetValue)
+              .fontWeight(FontWeight.Normal)
+              .fontColor($r('app.color.hex_common_color'))
+              .fontSize($r("app.float.text_common_size"))
+          }
 
-          Text(this.SLASHES + taskItem.targetValue)
+          Text(taskBaseInfoList[taskItem.taskId].unit)
             .fontWeight(FontWeight.Normal)
             .fontColor($r('app.color.hex_common_color'))
             .fontSize($r("app.float.text_common_size"))
         }
-
-        Text(taskBaseInfoList[taskItem.taskId].unit)
-          .fontWeight(FontWeight.Normal)
-          .fontColor($r('app.color.hex_common_color'))
-          .fontSize($r("app.float.text_common_size"))
+        // .layoutWeight(this.TARGET_TEXT_WEIGHT)
+        .justifyContent(FlexAlign.End)
       }
-      .layoutWeight(this.TARGET_TEXT_WEIGHT)
-      .justifyContent(FlexAlign.End)
-
+      .padding({
+        left: $r('app.float.agency_row_padding'),
+        right: $r('app.float.agency_row_padding')
+      })
     }
     .padding({
       left: $r('app.float.agency_row_padding'),

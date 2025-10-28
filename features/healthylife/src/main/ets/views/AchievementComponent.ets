@@ -41,7 +41,7 @@ export struct AchievementComponent {
     })
     .backgroundColor($r('app.color.ach_bg_color'))
     .title(this.customTitleBuilder())
-    .backButtonIcon($r('app.media.heal_back'))
+    .backButtonIcon($r('app.media.chevron_left'))
     .padding({
       top: $r('app.float.default_40')
     })

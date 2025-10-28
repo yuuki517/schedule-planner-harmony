@@ -92,7 +92,7 @@ export struct AddTaskComponent {
     }
     .width(Const.THOUSANDTH_1000)
     .height(Const.THOUSANDTH_80)
-    .borderRadius($r('app.float.default_12'))
+    .borderRadius($r('app.float.default_16'))
     .padding({
       left: $r('app.float.default_12'),
       right: $r('app.float.default_12')

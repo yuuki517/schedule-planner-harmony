@@ -142,7 +142,7 @@ export struct EditTaskComponent {
         .justifyContent(FlexAlign.SpaceBetween)
         .backgroundColor($r('sys.color.background_primary'))
         .height($r('app.float.default_56'))
-        .borderRadius($r('app.float.default_10'))
+        .borderRadius($r('app.float.default_16'))
         .padding({
           left: $r('app.float.default_12'),
           right: $r('app.float.default_12')
@@ -172,7 +172,7 @@ export struct EditTaskComponent {
         }
         .width(Const.THOUSANDTH_940)
         .height($r('app.float.default_56'))
-        .borderRadius($r('app.float.default_10'))
+        .borderRadius($r('app.float.default_16'))
         .backgroundColor($r('sys.color.background_primary'))
         .justifyContent(FlexAlign.SpaceBetween)
         .padding({
