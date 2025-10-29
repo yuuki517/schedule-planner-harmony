@@ -115,7 +115,7 @@ export struct HomeComponent {
           .width($r('app.float.default_48'))
           .height($r('app.float.default_48'))
           .position({
-            x: Const.THOUSANDTH_830,
+            x: Const.THOUSANDTH_730,
             y: Const.THOUSANDTH_880
           })
           .zIndex(Const.HOME_COMPONENT_Z_INDEX)

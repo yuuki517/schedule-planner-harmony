@@ -27,7 +27,6 @@ export interface NavItem {
 
 export enum TabId {
   HOME,
-  ACHIEVEMENT,
   MINE
 }
 
@@ -37,12 +36,6 @@ export const NavList: NavItem[] = [
     icon_selected: $r('app.media.ic_tabs_home_sel'),
     text: $r('app.string.tab_home'),
     id: TabId.HOME
-  },
-  {
-    icon: $r('app.media.ic_tabs_achievement_normal'),
-    icon_selected: $r('app.media.ic_tabs_achievement_sel'),
-    text: $r('app.string.tab_achievement'),
-    id: TabId.ACHIEVEMENT
   },
   {
     icon: $r('app.media.ic_tabs_mine_normal'),

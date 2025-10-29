@@ -56,16 +56,12 @@ export struct HealthyLifePage {
         }
         .tabBar(this.tabBuilder(TabId.HOME))
 
-        // TabContent() {
-        //   AchievementComponent()
-        // }
-        // .tabBar(this.tabBuilder(TabId.ACHIEVEMENT))
-
         TabContent() {
           MineComponent()
         }
         .tabBar(this.tabBuilder(TabId.MINE))
       }
+      .backgroundColor($r('sys.color.background_secondary'))
       .scrollable(false)
       .width(Const.THOUSANDTH_1000)
       .height(Const.THOUSANDTH_1000)

@@ -24,6 +24,7 @@ export enum PickerType {
 export class CommonConstants {
   // thousandth
   static readonly THOUSANDTH_15: string = '1.5%';
+  static readonly THOUSANDTH_30: string = '3%';
   static readonly THOUSANDTH_33: string = '3.3%';
   static readonly THOUSANDTH_50: string = '5%';
   static readonly THOUSANDTH_66: string = '6.6%';
@@ -37,6 +38,7 @@ export class CommonConstants {
   static readonly THOUSANDTH_420: string = '42%';
   static readonly THOUSANDTH_500: string = '50%';
   static readonly THOUSANDTH_560: string = '56%';
+  static readonly THOUSANDTH_730: string = '73%';
   static readonly THOUSANDTH_780: string = '78%';
   static readonly THOUSANDTH_800: string = '80%';
   static readonly THOUSANDTH_830: string = '83%';
