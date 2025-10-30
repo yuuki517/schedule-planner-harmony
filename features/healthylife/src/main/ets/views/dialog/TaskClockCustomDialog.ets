@@ -59,19 +59,6 @@ export function taskClockDialogBuilder(params: TaskInfoDialogParams) {
     .onClick(async () => {
       await taskClock(params);
     });
-
-    Text($r('app.string.got_it'))
-      .fontFamily(Const.HARMONY_HEI_TI)
-      .fontWeight(FontWeight.Regular)
-      .fontColor($r(`sys.color.font_on_primary`))
-      .fontSize($r('app.float.default_14'))
-      .margin({
-        top: $r('app.float.default_12')
-      })
-      .onClick(() => {
-        PromptActionClass.closeDialog();
-      });
-
   }
   .height($r('app.float.default_451'))
   .width($r('app.float.default_316'))
@@ -82,8 +69,8 @@ export function taskClockDialogBuilder(params: TaskInfoDialogParams) {
   })
   .justifyContent(FlexAlign.End)
   .padding({
-    bottom: $r('app.float.default_12'),
-    left: $r('app.float.default_20')
+    bottom: $r('app.float.default_16'),
+    left: $r('app.float.default_10')
   })
 }
 

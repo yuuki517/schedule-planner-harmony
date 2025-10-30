@@ -122,10 +122,14 @@ struct AgencyCard {
         .width($r('app.float.agency_image_size'))
         .height($r('app.float.agency_image_size'))
         .objectFit(ImageFit.Contain)
-      Column(){
+      Column() {
         Text(taskBaseInfoList[taskItem.taskId].name)
-          .fontSize('18fp')
+          .fontSize($r('app.float.card_title_size'))
           .fontWeight(FontWeight.Medium)
+          .margin({
+            top: $r('app.float.default_2'),
+            bottom: $r('app.float.default_4')
+          })
         Row() {
           if (taskBaseInfoList[taskItem.taskId].step === 0) {
             Text(taskItem.isDone ? taskItem.targetValue : this.TARGET_VALUE_SPLICING + taskItem.targetValue)
@@ -137,7 +141,8 @@ struct AgencyCard {
           } else {
             Text(taskItem.finValue === '' ? this.CROSS_BAR_SYMBOL : taskItem.finValue)
               .fontWeight(taskItem.finValue === '' ? FontWeight.Normal : this.TEXT_SLIGHTLY_BOLD)
-              .fontColor(taskItem.finValue === '' ? $r('app.color.hex_common_color') : $r('app.color.text_common_color'))
+              .fontColor(taskItem.finValue === '' ? $r('app.color.hex_common_color') :
+                $r('app.color.text_common_color'))
               .fontSize(taskItem.finValue === '' ? $r("app.float.text_common_size") : $r('app.float.agency_text_bold'))
 
             Text(this.SLASHES + taskItem.targetValue)
@@ -151,9 +156,9 @@ struct AgencyCard {
             .fontColor($r('app.color.hex_common_color'))
             .fontSize($r("app.float.text_common_size"))
         }
-        // .layoutWeight(this.TARGET_TEXT_WEIGHT)
         .justifyContent(FlexAlign.End)
       }
+      .alignItems(HorizontalAlign.Start)
       .padding({
         left: $r('app.float.agency_row_padding'),
         right: $r('app.float.agency_row_padding')
@@ -164,7 +169,7 @@ struct AgencyCard {
       right: $r('app.float.agency_row_padding')
     })
     .width(this.FULL_WIDTH_PERCENT)
-    .height(this.AGENCY_COMPONENT_HEIGHT)
+    .height(this.FULL_WIDTH_PERCENT)
     .onClick(() => {
       this.jumpToAbility();
     })

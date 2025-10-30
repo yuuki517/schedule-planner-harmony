@@ -83,6 +83,10 @@
     {
       "name": "agency_row_padding",
       "value": "15vp"
+    },
+    {
+      "name": "card_title_size",
+      "value": "18fp"
     }
   ]
 }
