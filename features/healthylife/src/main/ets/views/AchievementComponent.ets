@@ -11,10 +11,34 @@ export function achBuilder() {
 @Component
 export struct AchievementComponent {
   @Consume achievementStore: AchievementStore;
+  @Consume('pathStack') pageStack: NavPathStack;
 
   build() {
     NavDestination() {
       Column() {
+        Row() {
+          Image($r('app.media.ach_back'))
+            .height($r('app.float.default_40'))
+            .width($r('app.float.default_40'))
+            .margin({
+              right: $r('app.float.default_8')
+            })
+            .onClick(() => {
+              this.pageStack.pop();
+            })
+          Text($r('app.string.my_achievement'))
+            .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
+            .fontWeight(FontWeight.Bold)
+            .fontColor($r(`sys.color.font_on_primary`))
+            .fontSize($r('app.float.default_20'))
+            .width(Const.THOUSANDTH_1000)
+            .height($r('app.float.default_56'))
+        }
+        .margin({
+          left: $r('app.float.default_12'),
+          right: $r('app.float.default_12')
+        })
+
         Flex({
           direction: FlexDirection.Row,
           wrap: FlexWrap.Wrap
@@ -40,24 +64,10 @@ export struct AchievementComponent {
       height: Const.THOUSANDTH_1000
     })
     .backgroundColor($r('app.color.ach_bg_color'))
-    .title(this.customTitleBuilder())
-    .backButtonIcon($r('app.media.chevron_left'))
+    .hideTitleBar(true)
     .padding({
       top: $r('app.float.default_40')
     })
-  }
-
-  @Builder
-  customTitleBuilder() {
-    Column() {
-      Text($r('app.string.my_achievement'))
-        .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
-        .fontWeight(FontWeight.Regular)
-        .fontColor($r(`sys.color.font_on_primary`))
-        .fontSize($r('app.float.default_24'))
-        .width(Const.THOUSANDTH_1000)
-        .height($r('app.float.default_56'))
-    }
   }
 
   @Builder

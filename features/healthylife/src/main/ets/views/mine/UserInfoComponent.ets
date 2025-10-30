@@ -22,13 +22,14 @@ import { CommonConstants as Const } from 'common';
 export struct UserInfoComponent {
   build() {
     Row({ space: $r('app.float.default_12') }) {
-      Image($r('app.media.ic_user'))
+      Image($r('app.media.person_crop_circle'))
         .width($r('app.float.default_48'))
         .height($r('app.float.default_48'))
 
       Text($r('app.string.user_name'))
+        .fontColor($r('app.color.mine_font_color'))
         .fontSize($r('app.float.default_18'))
-        .fontWeight(FontWeight.Bold)
+        .fontWeight(FontWeight.Medium)
     }
     .width(Const.THOUSANDTH_940)
     .height(Const.THOUSANDTH_130)

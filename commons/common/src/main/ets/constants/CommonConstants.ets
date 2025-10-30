@@ -36,7 +36,7 @@ export class CommonConstants {
   static readonly THOUSANDTH_333: string = '33.3%';
   static readonly THOUSANDTH_400: string = '40%';
   static readonly THOUSANDTH_420: string = '42%';
-  static readonly THOUSANDTH_450: string = '45%';
+  static readonly THOUSANDTH_440: string = '44%';
   static readonly THOUSANDTH_500: string = '50%';
   static readonly THOUSANDTH_560: string = '56%';
   static readonly THOUSANDTH_730: string = '73%';

@@ -75,7 +75,7 @@ export struct AddTaskComponent {
 
       Text(taskBaseInfoList[item.taskId].name)
         .fontColor($r(`sys.color.font_primary`))
-        .fontSize($r('app.float.default_20'))
+        .fontSize($r('app.float.default_18'))
 
       Blank();
 

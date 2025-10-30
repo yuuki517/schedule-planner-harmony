@@ -92,7 +92,7 @@ export struct HealthyLifePage {
       Text(NavList[index].text)
         .fontSize($r('app.float.default_10'))
         .fontWeight(FontWeight.Regular)
-        .fontColor(this.currentIndex === index ? $r('sys.color.brand') : $r('sys.color.font_tertiary'))
+        .fontColor(this.currentIndex === index ? $r('app.color.text_font_color') : $r('sys.color.font_tertiary'))
         .margin({
           top: $r('app.float.default_4')
         })

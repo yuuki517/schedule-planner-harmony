@@ -16,7 +16,6 @@
  */
 
 import { CommonConstants as Const } from 'common';
-import { MineMenuComponent } from './mine/MineMenuComponent';
 import { UserInfoComponent } from './mine/UserInfoComponent';
 
 @Component
@@ -29,15 +28,16 @@ export struct MineComponent {
       Column() {
         UserInfoComponent()
         Row({ space: $r('app.float.default_16') }) {
-          Image($r('app.media.personal_profile'))
-            .width($r('app.float.default_28'))
-            .height($r('app.float.default_28'))
+          Image($r('app.media.book_closed_per'))
+            .width($r('app.float.default_24'))
+            .height($r('app.float.default_24'))
           Text($r('app.string.mine_personal_data'))
+            .fontColor($r('app.color.mine_font_color'))
             .fontSize($r('app.float.default_18'))
-            .fontWeight(FontWeight.Bold)
+            .fontWeight(FontWeight.Medium)
           Blank();
           SymbolGlyph($r('sys.symbol.chevron_right'))
-            .fontColor([$r('sys.color.icon_secondary')])
+            .fontColor([$r('sys.color.icon_fourth')])
             .fontWeight(FontWeight.Normal)
             .fontSize($r('app.float.default_24'))
         }
@@ -61,14 +61,15 @@ export struct MineComponent {
           .width(Const.THOUSANDTH_880)
         Row({ space: $r('app.float.default_16') }) {
           Image($r('app.media.arrow_up_circle'))
-            .width($r('app.float.default_28'))
-            .height($r('app.float.default_28'))
+            .width($r('app.float.default_24'))
+            .height($r('app.float.default_24'))
           Text($r('app.string.mine_check_updates'))
+            .fontColor($r('app.color.mine_font_color'))
             .fontSize($r('app.float.default_18'))
-            .fontWeight(FontWeight.Bold)
+            .fontWeight(FontWeight.Medium)
           Blank();
           SymbolGlyph($r('sys.symbol.chevron_right'))
-            .fontColor([$r('sys.color.icon_secondary')])
+            .fontColor([$r('sys.color.icon_fourth')])
             .fontWeight(FontWeight.Normal)
             .fontSize($r('app.float.default_24'))
         }
@@ -89,14 +90,15 @@ export struct MineComponent {
 
         Row({ space: $r('app.float.default_16') }) {
           Image($r('app.media.star_trophy'))
-            .width($r('app.float.default_28'))
-            .height($r('app.float.default_28'))
+            .width($r('app.float.default_24'))
+            .height($r('app.float.default_24'))
           Text($r('app.string.mine_achievement'))
+            .fontColor($r('app.color.mine_font_color'))
             .fontSize($r('app.float.default_18'))
-            .fontWeight(FontWeight.Bold)
+            .fontWeight(FontWeight.Medium)
           Blank();
           SymbolGlyph($r('sys.symbol.chevron_right'))
-            .fontColor([$r('sys.color.icon_secondary')])
+            .fontColor([$r('sys.color.icon_fourth')])
             .fontWeight(FontWeight.Normal)
             .fontSize($r('app.float.default_24'))
         }

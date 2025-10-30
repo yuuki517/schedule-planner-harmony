@@ -82,11 +82,7 @@ struct SplashPage {
   }
 
   aboutToAppear() {
-    preferences.getPreferences(this.context, H_STORE).then((res) => {
-      this.jumpAdPage();
-    }).catch((err: BusinessError) => {
-      hilog.error(0x0000, TAG, `Get preferences failed, code is ${err.code},message is ${err.message}`);
-    })
+    this.jumpAdPage();
   }
 
   aboutToDisappear() {

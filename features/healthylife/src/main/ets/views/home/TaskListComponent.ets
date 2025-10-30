@@ -115,7 +115,7 @@ export struct TaskListComponent {
       this.taskValueBuilder($r('app.string.was_done'), $r(`sys.color.font_primary`))
     } else {
       Row() {
-        this.taskValueBuilder((item.finValue || `--`), $r(`sys.color.font_secondary`))
+        this.taskValueBuilder((item.finValue || `--`), $r(`sys.color.font_primary`))
 
         this.taskValueBuilder(` / ${item.targetValue} `, $r(`sys.color.font_primary`))
 
