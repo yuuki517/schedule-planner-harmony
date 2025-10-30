@@ -74,7 +74,7 @@ export class FormUtils {
     const date = convertDate2Str(new Date());
     let updateDate: FormStorageModel = {};
     if (formInfo.formName === Const.FORM_NAME_AGENCY &&
-      Number(formInfo.formDimension) === Const.DEFAULT_DIMENSION_2X4) {
+      Number(formInfo.formDimension) === Const.DEFAULT_DIMENSION_1X2) {
       DayTaskInfoApi.queryDayTaskInfo(date).then((dayTaskInfos: DayTaskInfo[]) => {
         updateDate.dayTaskInfos = dayTaskInfos;
         FormUtils.updateFormByDate(updateDate, formInfo);

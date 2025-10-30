@@ -70,7 +70,7 @@ struct AgencyCard {
   /*
    * The list component space.
    */
-  readonly LIST_SPACE: number = 12;
+  readonly LIST_SPACE: number = 3;
   /*
    * The list component two lanes.
    */
@@ -96,25 +96,16 @@ struct AgencyCard {
     Column() {
       if (this.dayTaskInfos.length > 0) {
         List({ space: this.LIST_SPACE }) {
-          ForEach(this.dayTaskInfos.slice(0, 4), (taskItem: DayTaskInfo) => {
+          ForEach(this.dayTaskInfos.slice(0, 1), (taskItem: DayTaskInfo) => {
             ListItem() {
               this.AgencyComponent(taskItem)
             }
-            .margin({
-              left: $r("app.float.agency_item_margin"),
-              right: $r("app.float.agency_item_margin")
-            })
+            .width(this.FULL_WIDTH_PERCENT)
+            .height(this.FULL_HEIGHT_PERCENT)
             .borderRadius($r("app.float.agency_item_radius"))
             .backgroundColor(Color.White)
           }, (item: DayTaskInfo, index: number) => index + JSON.stringify(item))
         }
-        .padding({
-          left: $r('app.float.progress_stroke_width'),
-          top: $r('app.float.agency_padding_top'),
-          right: $r('app.float.agency_padding_right'),
-          bottom: $r('app.float.agency_padding_bottom')
-        })
-        .lanes(this.LIST_TWO_LANES)
         .backgroundColor($r("sys.color.background_tertiary"))
         .width(this.FULL_WIDTH_PERCENT)
         .height(this.FULL_HEIGHT_PERCENT)

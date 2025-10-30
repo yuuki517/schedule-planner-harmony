@@ -36,6 +36,7 @@ export class CommonConstants {
   static readonly THOUSANDTH_333: string = '33.3%';
   static readonly THOUSANDTH_400: string = '40%';
   static readonly THOUSANDTH_420: string = '42%';
+  static readonly THOUSANDTH_450: string = '45%';
   static readonly THOUSANDTH_500: string = '50%';
   static readonly THOUSANDTH_560: string = '56%';
   static readonly THOUSANDTH_730: string = '73%';
@@ -129,6 +130,7 @@ export class CommonConstants {
     // $r('app.string.mine_achievement')
   ];
   // Card Constants
+  static readonly DEFAULT_DIMENSION_1X2 = 1;
   static readonly DEFAULT_DIMENSION_2X2 = 2;
   static readonly DEFAULT_DIMENSION_2X4 = 3;
   static readonly FORM_NAME_AGENCY = "agency";

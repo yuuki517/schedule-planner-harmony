@@ -37,9 +37,9 @@
       "updateEnabled": false,
       "scheduledUpdateTime": "10:30",
       "updateDuration": 1,
-      "defaultDimension": "2*4",
+      "defaultDimension": "1*2",
       "supportDimensions": [
-        "2*4"
+        "1*2"
       ]
     }
   ]

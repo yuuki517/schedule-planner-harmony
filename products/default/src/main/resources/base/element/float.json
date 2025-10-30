@@ -50,11 +50,11 @@
     },
     {
       "name": "agency_padding_left",
-      "value": "12vp"
+      "value": "5vp"
     },
     {
       "name": "agency_padding_top",
-      "value": "10vp"
+      "value": "3vp"
     },
     {
       "name": "agency_padding_right",
@@ -62,7 +62,7 @@
     },
     {
       "name": "agency_padding_bottom",
-      "value": "10vp"
+      "value": "3vp"
     },
     {
       "name": "empty_data_size",
