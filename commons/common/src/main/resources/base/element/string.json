@@ -113,6 +113,10 @@
       "value": "About"
     },
     {
+      "name": "mine_achievement",
+      "value": "achievement"
+    },
+    {
       "name": "add_task",
       "value": "Add task"
     },

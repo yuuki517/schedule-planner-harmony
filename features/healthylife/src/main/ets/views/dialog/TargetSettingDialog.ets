@@ -42,17 +42,16 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
     Row() {
       Text($r('app.string.target_setting'))
         .fontSize($r('app.float.default_20'))
+        .fontWeight(FontWeight.Bold)
         .margin({
-          right: $r('app.float.default_12')
+          top: $r('app.float.default_12'),
+          right: $r('app.float.default_12'),
+          bottom: $r('app.float.default_16')
         })
-
-      if (params.taskBaseInfo.limit) {
-        Text(`(${params.taskBaseInfo.limit})`)
-          .fontSize($r('app.float.default_16'))
-      }
     }
     .width(Const.THOUSANDTH_1000)
-    .justifyContent(FlexAlign.Start)
+    .height($r('app.float.default_56'))
+    .justifyContent(FlexAlign.Center)
 
     if (params.taskBaseInfo.pickerType === PickerType.TIME) {
       TimePicker({
@@ -61,7 +60,10 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
         start: params.startDate,
         end: params.endDate
       })
-        .height(Const.THOUSANDTH_800)
+        .margin({
+          left: $r('app.float.default_24'),
+          right: $r('app.float.default_24')
+        })
         .useMilitaryTime(true)
         .onChange((value: TimePickerResult) => {
           if (value.hour != undefined && value.minute != undefined) {
@@ -74,7 +76,10 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
         value: params.selectedValue
       })
         .width(Const.THOUSANDTH_900)
-        .height(Const.THOUSANDTH_800)
+        .margin({
+          left: $r('app.float.default_24'),
+          right: $r('app.float.default_24')
+        })
         .onChange((value: string | string[]) => {
           params.selectedValue = value as string;
         })
@@ -82,14 +87,14 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
 
     Row() {
       Text($r('app.string.cancel'))
-        .fontColor($r('sys.color.brand'))
+        .fontColor($r('app.color.text_font_color'))
         .fontSize($r('app.float.default_20'))
         .onClick(() => {
           PromptActionClass.closeDialog();
         })
 
       Text($r('app.string.confirm'))
-        .fontColor($r('sys.color.brand'))
+        .fontColor($r('app.color.text_font_color'))
         .fontSize($r('app.float.default_20'))
         .onClick(() => {
           params.taskInfo.targetValue = params.selectedValue;
@@ -97,16 +102,20 @@ export function targetSettingDialogBuilder(params: TargetSettingDialogParams) {
         })
     }
     .width(Const.THOUSANDTH_1000)
-    .height($r('app.float.default_28'))
+    .height($r('app.float.default_56'))
     .justifyContent(FlexAlign.SpaceAround)
     .margin({
-      bottom: $r('app.float.default_20')
+      top: $r('app.float.default_8')
     })
   }
   .backgroundColor($r('sys.color.background_primary'))
-  .height(Const.THOUSANDTH_500)
+  .height(Const.THOUSANDTH_420)
   .justifyContent(FlexAlign.SpaceAround)
-  .borderRadius($r('app.float.default_24'))
-  .margin($r('app.float.default_18'))
+  .borderRadius($r('app.float.default_32'))
+  .margin({
+    left: $r('app.float.default_18'),
+    right: $r('app.float.default_18'),
+    bottom: Const.THOUSANDTH_500
+  })
   .padding($r('app.float.default_12'))
 }

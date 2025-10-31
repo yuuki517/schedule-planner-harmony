@@ -3,42 +3,70 @@ import { AchievementStore } from '../viewmodel/AchievementStore';
 import { openAchievementCustomDialog } from './dialog/AchievementDialog';
 import { AchievementItem, AchievementList } from '../model/AchievementModel';
 
+@Builder
+export function achBuilder() {
+  AchievementComponent();
+}
+
 @Component
 export struct AchievementComponent {
   @Consume achievementStore: AchievementStore;
+  @Consume('pathStack') pageStack: NavPathStack;
 
   build() {
-    Column() {
-      Text($r('app.string.my_achievement'))
-        .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
-        .fontWeight(FontWeight.Regular)
-        .fontColor($r(`sys.color.font_on_primary`))
-        .fontSize($r('app.float.default_24'))
-        .width(Const.THOUSANDTH_1000)
-        .height($r('app.float.default_56'))
-        .padding({
-          left: Const.THOUSANDTH_66,
-          top: Const.THOUSANDTH_150
+    NavDestination() {
+      Column() {
+        Row() {
+          Image($r('app.media.ach_back'))
+            .height($r('app.float.default_40'))
+            .width($r('app.float.default_40'))
+            .margin({
+              right: $r('app.float.default_8')
+            })
+            .onClick(() => {
+              this.pageStack.pop();
+            })
+          Text($r('app.string.my_achievement'))
+            .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
+            .fontWeight(FontWeight.Bold)
+            .fontColor($r(`sys.color.font_on_primary`))
+            .fontSize($r('app.float.default_20'))
+            .width(Const.THOUSANDTH_1000)
+            .height($r('app.float.default_56'))
+        }
+        .margin({
+          left: $r('app.float.default_12'),
+          right: $r('app.float.default_12')
         })
 
-      Flex({
-        direction: FlexDirection.Row,
-        wrap: FlexWrap.Wrap
-      }) {
-        ForEach(AchievementList, (item: AchievementItem, index: number) => {
-          this.achievementBuilder(index, item)
-        }, (item: AchievementItem, index: number) => index + JSON.stringify(item))
+        Flex({
+          direction: FlexDirection.Row,
+          wrap: FlexWrap.Wrap
+        }) {
+          ForEach(AchievementList, (item: AchievementItem, index: number) => {
+            this.achievementBuilder(index, item)
+          }, (item: AchievementItem, index: number) => index + JSON.stringify(item))
+        }
+        .width(Const.THOUSANDTH_1000)
       }
       .width(Const.THOUSANDTH_1000)
+      .height(Const.THOUSANDTH_1000)
+      .backgroundColor($r('app.color.ach_bg_color'))
+      .justifyContent(FlexAlign.Start)
+      .padding({
+        left: $r('app.float.default_10'),
+        right: $r('app.float.default_10'),
+        bottom: $r('app.float.default_10')
+      })
     }
-    .width(Const.THOUSANDTH_1000)
-    .height(Const.THOUSANDTH_1000)
+    .size({
+      width: Const.THOUSANDTH_1000,
+      height: Const.THOUSANDTH_1000
+    })
     .backgroundColor($r('app.color.ach_bg_color'))
-    .justifyContent(FlexAlign.Start)
+    .hideTitleBar(true)
     .padding({
-      left: $r('app.float.default_10'),
-      right: $r('app.float.default_10'),
-      bottom: $r('app.float.default_10')
+      top: $r('app.float.default_40')
     })
   }
 

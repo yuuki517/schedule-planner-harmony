@@ -38,7 +38,7 @@ export struct AddTaskComponent {
     NavDestination() {
       if (this.flag) {
         Column({
-          space: $r('app.float.default_2')
+          space: $r('app.float.default_12')
         }) {
           ForEach(this.taskList, (item: TaskInfo, index: number) => {
             this.taskInfoBuilder(item, index)
@@ -46,6 +46,7 @@ export struct AddTaskComponent {
         }
         .width(Const.THOUSANDTH_940)
         .justifyContent(FlexAlign.Center)
+        .margin($r('app.float.default_8'))
       }
     }
     .size({
@@ -55,7 +56,9 @@ export struct AddTaskComponent {
     .backgroundColor($r('sys.color.background_secondary'))
     .title($r('app.string.add_task'))
     .padding({
-      top: $r('app.float.default_36')
+      top: $r('app.float.default_40'),
+      left:$r('app.float.default_6'),
+      right:$r('app.float.default_6')
     })
   }
 
@@ -72,7 +75,7 @@ export struct AddTaskComponent {
 
       Text(taskBaseInfoList[item.taskId].name)
         .fontColor($r(`sys.color.font_primary`))
-        .fontSize($r('app.float.default_20'))
+        .fontSize($r('app.float.default_18'))
 
       Blank();
 
@@ -91,7 +94,7 @@ export struct AddTaskComponent {
     }
     .width(Const.THOUSANDTH_1000)
     .height(Const.THOUSANDTH_80)
-    .borderRadius($r('app.float.default_12'))
+    .borderRadius($r('app.float.default_16'))
     .padding({
       left: $r('app.float.default_12'),
       right: $r('app.float.default_12')

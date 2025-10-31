@@ -38,8 +38,8 @@ export struct TaskListComponent {
       .width(Const.THOUSANDTH_1000)
       .padding({
         top: Const.THOUSANDTH_15,
-        right: Const.THOUSANDTH_33,
-        left: Const.THOUSANDTH_33
+        left:$r('app.float.default_16'),
+        right:$r('app.float.default_16')
       })
     } else {
       Column() {
@@ -86,7 +86,7 @@ export struct TaskListComponent {
     }
     .width(Const.THOUSANDTH_1000)
     .height($r('app.float.default_62'))
-    .borderRadius($r('app.float.default_24'))
+    .borderRadius($r('app.float.default_16'))
     .padding({
       left: Const.THOUSANDTH_50,
       right: Const.THOUSANDTH_50
@@ -115,7 +115,7 @@ export struct TaskListComponent {
       this.taskValueBuilder($r('app.string.was_done'), $r(`sys.color.font_primary`))
     } else {
       Row() {
-        this.taskValueBuilder((item.finValue || `--`), $r(`sys.color.font_secondary`))
+        this.taskValueBuilder((item.finValue || `--`), $r(`sys.color.font_primary`))
 
         this.taskValueBuilder(` / ${item.targetValue} `, $r(`sys.color.font_primary`))
 

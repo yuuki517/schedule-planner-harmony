@@ -17,8 +17,20 @@
       "value": "#66FFFFFF"
     },
     {
+      "name": "button_red",
+      "value": "#E84026"
+    },
+    {
       "name": "ach_bg_color",
       "value": "#000000"
+    },
+    {
+      "name": "mine_font_color",
+      "value": "#E5000000"
+    },
+    {
+      "name": "text_font_color",
+      "value": "#0A59F7"
     }
   ]
 }

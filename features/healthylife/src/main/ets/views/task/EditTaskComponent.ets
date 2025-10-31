@@ -121,19 +121,19 @@ export struct EditTaskComponent {
   build() {
     NavDestination() {
       Column({
-        space: $r('app.float.default_2')
+        space: $r('app.float.default_12')
       }) {
         Row() {
           Text(this.taskBaseInfo.name)
             .fontWeight(FontWeight.Medium)
-            .fontSize($r('app.float.default_20'))
+            .fontSize($r('app.float.default_18'))
 
           Toggle({
             type: ToggleType.Switch,
             isOn: this.taskInfo.isOpen
           })
-            .width($r('app.float.default_56'))
-            .height($r('app.float.default_32'))
+            .width($r('app.float.default_36'))
+            .height($r('app.float.default_20'))
             .onChange((isOn) => {
               this.taskInfo.isOpen = isOn;
             })
@@ -142,7 +142,7 @@ export struct EditTaskComponent {
         .justifyContent(FlexAlign.SpaceBetween)
         .backgroundColor($r('sys.color.background_primary'))
         .height($r('app.float.default_56'))
-        .borderRadius($r('app.float.default_10'))
+        .borderRadius($r('app.float.default_16'))
         .padding({
           left: $r('app.float.default_12'),
           right: $r('app.float.default_12')
@@ -151,7 +151,7 @@ export struct EditTaskComponent {
         Row() {
           Text($r('app.string.target_setting'))
             .fontWeight(FontWeight.Medium)
-            .fontSize($r('app.float.default_20'))
+            .fontSize($r('app.float.default_18'))
 
           Blank()
 
@@ -172,7 +172,7 @@ export struct EditTaskComponent {
         }
         .width(Const.THOUSANDTH_940)
         .height($r('app.float.default_56'))
-        .borderRadius($r('app.float.default_10'))
+        .borderRadius($r('app.float.default_16'))
         .backgroundColor($r('sys.color.background_primary'))
         .justifyContent(FlexAlign.SpaceBetween)
         .padding({
@@ -189,14 +189,15 @@ export struct EditTaskComponent {
 
         Button() {
           Text($r('app.string.complete'))
-            .fontSize($r('app.float.default_20'))
+            .fontSize($r('app.float.default_18'))
         }
-        .width(Const.THOUSANDTH_800)
-        .height($r('app.float.default_48'))
-        .backgroundColor($r('sys.color.background_primary'))
+        .buttonStyle(ButtonStyleMode.NORMAL)
+        .width(Const.THOUSANDTH_940)
+        .height($r('app.float.default_40'))
+        .backgroundColor($r('sys.color.button_background_color_transparent'))
         .position({
-          x: Const.THOUSANDTH_100,
-          y: Const.THOUSANDTH_800
+          x: Const.THOUSANDTH_30,
+          y: Const.THOUSANDTH_880
         })
         .onClick(async () => {
           await this.finishTaskEdit();
@@ -204,6 +205,7 @@ export struct EditTaskComponent {
       }
       .width(Const.THOUSANDTH_1000)
       .justifyContent(FlexAlign.Center)
+      .margin($r('app.float.default_8'))
     }
     .size({
       width: Const.THOUSANDTH_1000,
@@ -211,7 +213,9 @@ export struct EditTaskComponent {
     })
     .title($r('app.string.edit_task'))
     .padding({
-      top: $r('app.float.default_36')
+      top: $r('app.float.default_40'),
+      left:$r('app.float.default_6'),
+      right:$r('app.float.default_6')
     })
     .backgroundColor($r('sys.color.background_secondary'))
   }

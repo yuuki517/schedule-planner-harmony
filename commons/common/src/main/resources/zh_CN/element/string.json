@@ -113,6 +113,10 @@
       "value": "关于"
     },
     {
+      "name": "mine_achievement",
+      "value": "成就"
+    },
+    {
       "name": "add_task",
       "value": "添加任务"
     },

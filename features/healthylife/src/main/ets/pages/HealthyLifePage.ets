@@ -19,7 +19,6 @@ import { HomeComponent } from '../views/HomeComponent';
 import { MineComponent } from '../views/MineComponent';
 import { NavList, TabId } from '../model/NavItemModel';
 import { CommonConstants as Const, convertDate2Str } from 'common';
-import { AchievementComponent } from '../views/AchievementComponent';
 import DayInfoApi from 'common/src/main/ets/database/tables/DayInfoApi';
 import { AchievementStore, initAchievementStore } from '../viewmodel/AchievementStore';
 import { HomeStore } from '../viewmodel/HomeStore';
@@ -57,15 +56,11 @@ export struct HealthyLifePage {
         .tabBar(this.tabBuilder(TabId.HOME))
 
         TabContent() {
-          AchievementComponent()
-        }
-        .tabBar(this.tabBuilder(TabId.ACHIEVEMENT))
-
-        TabContent() {
           MineComponent()
         }
         .tabBar(this.tabBuilder(TabId.MINE))
       }
+      .backgroundColor($r('sys.color.background_secondary'))
       .scrollable(false)
       .width(Const.THOUSANDTH_1000)
       .height(Const.THOUSANDTH_1000)
@@ -96,7 +91,7 @@ export struct HealthyLifePage {
       Text(NavList[index].text)
         .fontSize($r('app.float.default_10'))
         .fontWeight(FontWeight.Regular)
-        .fontColor(this.currentIndex === index ? $r('sys.color.brand') : $r('sys.color.font_tertiary'))
+        .fontColor(this.currentIndex === index ? $r('app.color.text_font_color') : $r('sys.color.font_tertiary'))
         .margin({
           top: $r('app.float.default_4')
         })

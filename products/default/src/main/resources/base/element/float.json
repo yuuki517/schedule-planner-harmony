@@ -46,23 +46,23 @@
     },
     {
       "name": "agency_item_radius",
-      "value": "6vp"
+      "value": "16vp"
     },
     {
       "name": "agency_padding_left",
-      "value": "12vp"
+      "value": "5vp"
     },
     {
       "name": "agency_padding_top",
-      "value": "10vp"
+      "value": "3vp"
     },
     {
       "name": "agency_padding_right",
-      "value": "6vp"
+      "value": "5vp"
     },
     {
       "name": "agency_padding_bottom",
-      "value": "10vp"
+      "value": "3vp"
     },
     {
       "name": "empty_data_size",
@@ -83,6 +83,10 @@
     {
       "name": "agency_row_padding",
       "value": "15vp"
+    },
+    {
+      "name": "card_title_size",
+      "value": "18fp"
     }
   ]
 }

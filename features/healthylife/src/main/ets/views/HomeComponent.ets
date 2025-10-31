@@ -21,8 +21,6 @@ import { TaskListComponent } from './home/TaskListComponent';
 import { AchievementStore } from '../viewmodel/AchievementStore';
 import { HomeStore, initCurrentDateInfo } from '../viewmodel/HomeStore';
 
-const WHITE_COLOR_0X = 255;
-
 @Builder
 export function homeBuilder() {
   HomeComponent();
@@ -36,17 +34,6 @@ export struct HomeComponent {
   @State naviAlpha: number = 0;
   @State flag: boolean = false;
   private scroller: Scroller = new Scroller();
-  private yOffset: number = 0;
-
-  // change navigator alpha when scrolling the Scroll component
-  onScrollAction() {
-    this.yOffset = this.scroller.currentOffset().yOffset;
-    if (this.yOffset > Const.DEFAULT_56) {
-      this.naviAlpha = 1;
-    } else {
-      this.naviAlpha = this.yOffset / Const.DEFAULT_56;
-    }
-  }
 
   async aboutToAppear() {
     this.homeStore = await initCurrentDateInfo(new Date());
@@ -62,7 +49,7 @@ export struct HomeComponent {
             Column() {
               Text($r('app.string.healthy_life'))
                 .fontFamily($r(Const.HARMONY_HEI_TI_MEDIUM))
-                .fontWeight(FontWeight.Regular)
+                .fontWeight(FontWeight.Bold)
                 .fontColor($r(`sys.color.font_primary`))
                 .fontSize($r('app.float.default_24'))
                 .width(Const.THOUSANDTH_1000)
@@ -80,14 +67,14 @@ export struct HomeComponent {
 
               Text($r('app.string.task_list'))
                 .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
-                .fontWeight(FontWeight.Regular)
+                .fontWeight(FontWeight.Bold)
                 .fontColor($r(`sys.color.font_primary`))
-                .fontSize($r('app.float.default_16'))
+                .fontSize($r('app.float.default_20'))
                 .width(Const.THOUSANDTH_1000)
                 .padding({
-                  top: Const.THOUSANDTH_15,
-                  bottom: Const.THOUSANDTH_15,
-                  left: Const.THOUSANDTH_33
+                  top: $r('app.float.default_24'),
+                  bottom: $r('app.float.default_8'),
+                  left: $r('app.float.default_16')
                 })
 
               TaskListComponent()
@@ -101,9 +88,6 @@ export struct HomeComponent {
             alwaysEnabled: false,
             effectEdge: EffectEdge.END
           })
-          .onWillScroll(() => {
-            this.onScrollAction();
-          })
 
           Button({
             type: ButtonType.Circle,
@@ -115,8 +99,8 @@ export struct HomeComponent {
           .width($r('app.float.default_48'))
           .height($r('app.float.default_48'))
           .position({
-            x: Const.THOUSANDTH_830,
-            y: Const.THOUSANDTH_880
+            x: Const.THOUSANDTH_440,
+            y: Const.THOUSANDTH_900
           })
           .zIndex(Const.HOME_COMPONENT_Z_INDEX)
           .onClick(() => {

@@ -46,7 +46,7 @@ struct AgencyCard {
   /*
    * The agency component height percentage setting.
    */
-  readonly AGENCY_COMPONENT_HEIGHT: string = '30.5%';
+  readonly AGENCY_COMPONENT_HEIGHT: string = '45%';
   /*
    * The empty image height percentage setting.
    */
@@ -70,7 +70,7 @@ struct AgencyCard {
   /*
    * The list component space.
    */
-  readonly LIST_SPACE: number = 5;
+  readonly LIST_SPACE: number = 3;
   /*
    * The list component two lanes.
    */
@@ -96,25 +96,17 @@ struct AgencyCard {
     Column() {
       if (this.dayTaskInfos.length > 0) {
         List({ space: this.LIST_SPACE }) {
-          ForEach(this.dayTaskInfos, (taskItem: DayTaskInfo) => {
+          ForEach(this.dayTaskInfos.slice(0, 1), (taskItem: DayTaskInfo) => {
             ListItem() {
               this.AgencyComponent(taskItem)
             }
-            .margin({
-              right: $r("app.float.agency_item_margin")
-            })
+            .width(this.FULL_WIDTH_PERCENT)
+            .height(this.FULL_HEIGHT_PERCENT)
             .borderRadius($r("app.float.agency_item_radius"))
             .backgroundColor(Color.White)
           }, (item: DayTaskInfo, index: number) => index + JSON.stringify(item))
         }
-        .padding({
-          left: $r('app.float.agency_padding_left'),
-          top: $r('app.float.agency_padding_top'),
-          right: $r('app.float.agency_padding_right'),
-          bottom: $r('app.float.agency_padding_bottom')
-        })
-        .lanes(this.LIST_TWO_LANES)
-        .backgroundColor($r("app.color.list_background_color"))
+        .backgroundColor($r("sys.color.background_tertiary"))
         .width(this.FULL_WIDTH_PERCENT)
         .height(this.FULL_HEIGHT_PERCENT)
       } else {
@@ -130,42 +122,54 @@ struct AgencyCard {
         .width($r('app.float.agency_image_size'))
         .height($r('app.float.agency_image_size'))
         .objectFit(ImageFit.Contain)
+      Column() {
+        Text(taskBaseInfoList[taskItem.taskId].name)
+          .fontSize($r('app.float.card_title_size'))
+          .fontWeight(FontWeight.Medium)
+          .margin({
+            top: $r('app.float.default_2'),
+            bottom: $r('app.float.default_4')
+          })
+        Row() {
+          if (taskBaseInfoList[taskItem.taskId].step === 0) {
+            Text(taskItem.isDone ? taskItem.targetValue : this.TARGET_VALUE_SPLICING + taskItem.targetValue)
+              .fontWeight(FontWeight.Normal)
+              .fontColor($r("app.color.text_common_color"))
+              .fontSize($r("app.float.text_common_size"))
+              .opacity(this.TARGET_TEXT_OPACITY)
+              .textAlign(TextAlign.End)
+          } else {
+            Text(taskItem.finValue === '' ? this.CROSS_BAR_SYMBOL : taskItem.finValue)
+              .fontWeight(taskItem.finValue === '' ? FontWeight.Normal : this.TEXT_SLIGHTLY_BOLD)
+              .fontColor(taskItem.finValue === '' ? $r('app.color.hex_common_color') :
+                $r('app.color.text_common_color'))
+              .fontSize(taskItem.finValue === '' ? $r("app.float.text_common_size") : $r('app.float.agency_text_bold'))
 
-      Row() {
-        if (taskBaseInfoList[taskItem.taskId].step === 0) {
-          Text(taskItem.isDone ? taskItem.targetValue : this.TARGET_VALUE_SPLICING + taskItem.targetValue)
-            .fontWeight(FontWeight.Normal)
-            .fontColor($r("app.color.text_common_color"))
-            .fontSize($r("app.float.text_common_size"))
-            .opacity(this.TARGET_TEXT_OPACITY)
-            .textAlign(TextAlign.End)
-        } else {
-          Text(taskItem.finValue === '' ? this.CROSS_BAR_SYMBOL : taskItem.finValue)
-            .fontWeight(taskItem.finValue === '' ? FontWeight.Normal : this.TEXT_SLIGHTLY_BOLD)
-            .fontColor(taskItem.finValue === '' ? $r('app.color.hex_common_color') : $r('app.color.text_common_color'))
-            .fontSize(taskItem.finValue === '' ? $r("app.float.text_common_size") : $r('app.float.agency_text_bold'))
+            Text(this.SLASHES + taskItem.targetValue)
+              .fontWeight(FontWeight.Normal)
+              .fontColor($r('app.color.hex_common_color'))
+              .fontSize($r("app.float.text_common_size"))
+          }
 
-          Text(this.SLASHES + taskItem.targetValue)
+          Text(taskBaseInfoList[taskItem.taskId].unit)
             .fontWeight(FontWeight.Normal)
             .fontColor($r('app.color.hex_common_color'))
             .fontSize($r("app.float.text_common_size"))
         }
-
-        Text(taskBaseInfoList[taskItem.taskId].unit)
-          .fontWeight(FontWeight.Normal)
-          .fontColor($r('app.color.hex_common_color'))
-          .fontSize($r("app.float.text_common_size"))
+        .justifyContent(FlexAlign.End)
       }
-      .layoutWeight(this.TARGET_TEXT_WEIGHT)
-      .justifyContent(FlexAlign.End)
-
+      .alignItems(HorizontalAlign.Start)
+      .padding({
+        left: $r('app.float.agency_row_padding'),
+        right: $r('app.float.agency_row_padding')
+      })
     }
     .padding({
       left: $r('app.float.agency_row_padding'),
       right: $r('app.float.agency_row_padding')
     })
     .width(this.FULL_WIDTH_PERCENT)
-    .height(this.AGENCY_COMPONENT_HEIGHT)
+    .height(this.FULL_WIDTH_PERCENT)
     .onClick(() => {
       this.jumpToAbility();
     })
