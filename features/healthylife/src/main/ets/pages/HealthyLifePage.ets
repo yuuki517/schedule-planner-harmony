@@ -19,7 +19,6 @@ import { HomeComponent } from '../views/HomeComponent';
 import { MineComponent } from '../views/MineComponent';
 import { NavList, TabId } from '../model/NavItemModel';
 import { CommonConstants as Const, convertDate2Str } from 'common';
-import { AchievementComponent } from '../views/AchievementComponent';
 import DayInfoApi from 'common/src/main/ets/database/tables/DayInfoApi';
 import { AchievementStore, initAchievementStore } from '../viewmodel/AchievementStore';
 import { HomeStore } from '../viewmodel/HomeStore';

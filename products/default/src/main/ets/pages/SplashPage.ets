@@ -15,63 +15,16 @@
  *
  */
 
-import { common } from '@kit.AbilityKit';
-import { preferences } from '@kit.ArkData';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { CommonConstants as Const } from 'common';
-import UserPrivacyDialog from '../views/UserPrivacyDialog';
 
 // hilog tag.
 const TAG: string = 'SplashPage';
-// app preferences name
-const H_STORE: string = 'healthAppStore';
-const IS_PRIVACY: string = 'isPrivacy';
 
 @Entry
 @Component
 struct SplashPage {
-  context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  dialogController: CustomDialogController = new CustomDialogController({
-    builder: UserPrivacyDialog(
-      {
-        cancel: () => {
-          this.exitApp();
-        },
-        confirm: () => {
-          this.onConfirm();
-        }
-      }),
-    cancel: () => {
-      this.exitApp();
-    },
-    autoCancel: false,
-    alignment: DialogAlignment.Bottom,
-    offset: {
-      dx: $r('app.float.default_0'),
-      dy: $r('app.float.default_24')
-    }
-  });
-
-  onConfirm() {
-    preferences.getPreferences(this.context, H_STORE).then((res) => {
-      res.put(IS_PRIVACY, true).then(() => {
-        res.flush();
-        hilog.info(0x0000, TAG, 'isPrivacy is put success');
-      }).catch((err: BusinessError) => {
-        hilog.error(0x0000, TAG, `isPrivacy put failed, code is ${err.code},message is ${err.message}`);
-      });
-    }).catch((err: BusinessError) => {
-      hilog.error(0x0000, TAG, `Get preferences failed, code is ${err.code},message is ${err.message}`);
-    });
-    this.jumpAdPage();
-  }
-
-  exitApp() {
-    this.context.terminateSelf().catch((err: BusinessError) => {
-      hilog.error(0x0000, TAG, `Exit app failed, code is ${err.code},message is ${err.message}`);
-    });
-  }
 
   jumpAdPage() {
     setTimeout(() => {

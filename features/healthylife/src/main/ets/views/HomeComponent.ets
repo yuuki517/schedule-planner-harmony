@@ -21,8 +21,6 @@ import { TaskListComponent } from './home/TaskListComponent';
 import { AchievementStore } from '../viewmodel/AchievementStore';
 import { HomeStore, initCurrentDateInfo } from '../viewmodel/HomeStore';
 
-const WHITE_COLOR_0X = 255;
-
 @Builder
 export function homeBuilder() {
   HomeComponent();

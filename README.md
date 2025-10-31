@@ -6,9 +6,11 @@
 
 ## 效果预览
 
-| <img src="./screenshots/healthyfile1.png" width="320"/> | <img src="./screenshots/healthyfile2.png" width="320"/> | <img src="./screenshots/healthyfile3.png" width="320"/> |
-|---------------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
-| <img src="./screenshots/healthyfile4.png" width="320"/> | <img src="./screenshots/healthyfile5.png" width="320"/> | <img src="./screenshots/healthyfile6.png" width="320"/> |
+| <img src="./screenshots/healthyfile1.png" width="320"/>   | <img src="./screenshots/healthyfile2.png" width="320"/>   | <img src="./screenshots/healthyfile3.png" width="320"/> | <img src="./screenshots/healthyfile4.png" width="320"/>  |
+|-----------------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------|----------------------------------------------------------|
+
+| <img src="./screenshots/healthyfile5.png" width="320"/>   | <img src="./screenshots/healthyfile6.png" width="320"/>   | <img src="./screenshots/healthyfile7.png" width="320"/> | <img src="./screenshots/healthyfile8.png" width="320"/>  |  
+|-----------------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------|----------------------------------------------------------|
 
 ## 使用说明
 
@@ -18,10 +20,10 @@
 4. 当用户连续打卡天数达到3、7、30、50、73、99天时，可以获得相应的成就。成就在获得时会以动画形式弹出，并可以在“成就”页面查看。
 5. 用户可以查看以前的健康生活任务完成情况。
 6. 打开应用，显示主页面，点击加号添加任务，添加完任务后，任务列表显示所有添加的任务。
-7. 应用退出到后台，长按应用，点击服务卡片，选择2x4卡片，添加到桌面，显示已添加任务。
+7. 应用退出到后台，长按应用，点击服务卡片，选择1x2卡片，添加到桌面，显示已添加任务。
 8. 应用退出到后台，长按应用，点击服务卡片，选择2x2卡片，添加到桌面，显示任务完成进度。
-9. 点击2x2或2x4元服务卡片，拉起主页面，看到任务列表。
-10. 在卡片配置文件中，设置卡片更新时间，更新时间到后，桌面上2x2或2x4卡片会重置第二天任务，需要重新添加。
+9. 点击1x2或2x2元服务卡片，拉起主页面，看到任务列表。
+10. 在卡片配置文件中，设置卡片更新时间，更新时间到后，桌面上1x2或2x2卡片会重置第二天任务，需要重新添加。
 11. 用户可以设置通知提醒，仅限早起、早睡。
 
 ## 工程目录
@@ -57,7 +59,7 @@
 │     ├──PromptActionClass.ets                    // 自定义弹窗工具类
 │     └──Utils.ets
 └──common/src/main/resource
-
+│
 ├───healthylife/src/main/ets
 │  ├──healthyfileability
 │  │  └──HealthylifeAbility.ets                   // 模块入口类
@@ -83,7 +85,6 @@
 │     │  ├──TaskListComponent.ets                 // 任务列表组件
 │     │  └──WeekCalendarComponent.ets             // 周视图组件
 │     ├──mine
-│     │  ├──MineMenuComponent.ets                 // 菜单组件
 │     │  └──UserInfoComponent.ets                 // 用户信息组件
 │     ├──task
 │     │  ├──AddTaskComponent.ets                  // 添加任务组件
@@ -91,8 +92,8 @@
 │     ├──AchievementComponent.ets                 // 成就页面
 │     ├──HomeComponent.ets                        // 首页页面
 │     └──MineComponent.ets                        // 我的页面
-└──common/src/main/resource
-
+└──healthylife/src/main/resource
+│
 ├───default/src/main/ets
 │  ├──agency
 │  │  └──pages
@@ -110,7 +111,7 @@
 │  │     └──ProgressCard.ets                      // 任务进度-服务卡片      
 │  └──view
 │     └──UserPrivacyDialog.ets                    // 用户隐私协议弹窗
-└──common/src/main/resource
+└──default/src/main/resource
 ```
 
 ## 具体实现
@@ -135,6 +136,6 @@
 
 ## 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机。
-2. HarmonyOS系统：HarmonyOS 6.0.0 Release及以上。
+2. HarmonyOS系统：HarmonyOS 5.0.5 Release及以上。
 3. DevEco Studio版本：DevEco Studio 6.0.0 Release及以上。
 4. HarmonyOS SDK版本：HarmonyOS 6.0.0 Release SDK及以上。
