@@ -137,6 +137,6 @@ ohos.permission.PUBLISH_AGENT_REMINDER: allows an application to use agent-power
 ## Constraints
 
 1. This sample is only supported on Huawei phones running standard systems.
-2. The HarmonyOS version must be HarmonyOS 5.0.5 Release or later.
+2. The HarmonyOS version must be HarmonyOS 6.0.0 Release or later.
 3. The DevEco Studio version must be DevEco Studio 6.0.0 Release or later.
 4. The HarmonyOS SDK version must be HarmonyOS 6.0.0 Release SDK or later.
