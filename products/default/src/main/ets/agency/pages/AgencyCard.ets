@@ -189,6 +189,8 @@ struct AgencyCard {
         .fontSize($r('app.float.empty_data_size'))
         .opacity(this.TEXT_OPACITY)
         .margin({
+          left: $r('app.float.agency_card_margin'),
+          right: $r('app.float.agency_card_margin'),
           top: this.TEXT_MARGIN_TOP
         })
     }
