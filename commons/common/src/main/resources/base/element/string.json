@@ -2,27 +2,27 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "Healthy life"
+      "value": "Schedule Planner"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "There are always new ways to play sports"
+      "value": "Plan classes and study tasks for today"
     },
     {
       "name": "EntryAbility_label",
-      "value": "Healthy life"
+      "value": "Schedule Planner"
     },
     {
       "name": "healthy_life",
-      "value": "Healthy life"
+      "value": "Schedule Planner"
     },
     {
       "name": "target_progress",
-      "value": "Target progress"
+      "value": "Today progress"
     },
     {
       "name": "task_list",
-      "value": "Task list"
+      "value": "Today schedule"
     },
     {
       "name": "week_shorthand_mon",
@@ -54,35 +54,35 @@
     },
     {
       "name": "no_task",
-      "value": "There are no tasks, please add tasks"
+      "value": "No schedule yet. Add a class or study task."
     },
     {
       "name": "task_getup",
-      "value": "Early riser"
+      "value": "Class"
     },
     {
       "name": "task_drink",
-      "value": "Drink"
+      "value": "Homework"
     },
     {
       "name": "task_apple",
-      "value": "Eat apples"
+      "value": "Reading"
     },
     {
       "name": "task_smile",
-      "value": "Smile every day"
+      "value": "Review"
     },
     {
       "name": "task_brush",
-      "value": "Brush your teeth daily"
+      "value": "Preview"
     },
     {
       "name": "task_sleep",
-      "value": "Go to bed early"
+      "value": "Evening study"
     },
     {
       "name": "clock_in",
-      "value": "Clock"
+      "value": "Done"
     },
     {
       "name": "got_it",
@@ -90,15 +90,15 @@
     },
     {
       "name": "was_done",
-      "value": "Was done"
+      "value": "Done"
     },
     {
       "name": "my_achievement",
-      "value": "My achievement"
+      "value": "Study achievements"
     },
     {
       "name": "achievement_level",
-      "value": "Achieved for %s consecutive day"
+      "value": "Planned for %s consecutive days"
     },
     {
       "name": "mine_personal_data",
@@ -118,27 +118,27 @@
     },
     {
       "name": "add_task",
-      "value": "Add task"
+      "value": "Add schedule"
     },
     {
       "name": "edit_task",
-      "value": "Edit task"
+      "value": "Edit schedule"
     },
     {
       "name": "task_opened",
-      "value": "Opened"
+      "value": "Added"
     },
     {
       "name": "target_setting",
-      "value": "Target setting"
+      "value": "Plan setting"
     },
     {
       "name": "complete",
-      "value": "Complete"
+      "value": "Save"
     },
     {
       "name": "tab_home",
-      "value": "Home"
+      "value": "Schedule"
     },
     {
       "name": "tab_achievement",
@@ -162,11 +162,11 @@
     },
     {
       "name": "privacy_title",
-      "value": "Please enable the \"XX\" permission in the \"Healthy Life\" permission management"
+      "value": "Please enable the \"XX\" permission in Schedule Planner permission management"
     },
     {
       "name": "privacy_desc",
-      "value": "The function supports XX... (Function introduction)"
+      "value": "This feature reminds you about classes, homework, and study tasks."
     },
     {
       "name": "cancel",
@@ -174,23 +174,23 @@
     },
     {
       "name": "user_name",
-      "value": "Jolin"
+      "value": "Student"
     },
     {
       "name": "user_level",
-      "value": "LV.7"
+      "value": "Studying"
     },
     {
       "name": "user_signature",
-      "value": "This is a short personal signature"
+      "value": "Keep today clear and focused"
     },
     {
       "name": "unit_liter",
-      "value": "L"
+      "value": "h"
     },
     {
       "name": "unit_number",
-      "value": "number"
+      "value": "pages"
     },
     {
       "name": "unit_times",

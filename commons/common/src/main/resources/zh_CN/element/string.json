@@ -2,27 +2,27 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "健康生活"
+      "value": "课表日程助手"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "运动总有新玩法"
+      "value": "把课程和学习任务放进今日安排"
     },
     {
       "name": "EntryAbility_label",
-      "value": "健康生活"
+      "value": "课表日程助手"
     },
     {
       "name": "healthy_life",
-      "value": "健康生活"
+      "value": "课表日程助手"
     },
     {
       "name": "target_progress",
-      "value": "目标进度"
+      "value": "今日完成"
     },
     {
       "name": "task_list",
-      "value": "任务列表"
+      "value": "今日安排"
     },
     {
       "name": "week_shorthand_mon",
@@ -54,35 +54,35 @@
     },
     {
       "name": "no_task",
-      "value": "暂无任务，请添加任务"
+      "value": "暂无安排，请添加课程或学习任务"
     },
     {
       "name": "task_getup",
-      "value": "早起"
+      "value": "上课"
     },
     {
       "name": "task_drink",
-      "value": "喝水"
+      "value": "作业"
     },
     {
       "name": "task_apple",
-      "value": "吃苹果"
+      "value": "阅读"
     },
     {
       "name": "task_smile",
-      "value": "每日微笑"
+      "value": "复习"
     },
     {
       "name": "task_brush",
-      "value": "每日刷牙"
+      "value": "预习"
     },
     {
       "name": "task_sleep",
-      "value": "早睡"
+      "value": "晚自习"
     },
     {
       "name": "clock_in",
-      "value": "打卡"
+      "value": "完成"
     },
     {
       "name": "got_it",
@@ -94,11 +94,11 @@
     },
     {
       "name": "my_achievement",
-      "value": "我的成就"
+      "value": "学习成就"
     },
     {
       "name": "achievement_level",
-      "value": "连续%s天达成"
+      "value": "连续%s天完成计划"
     },
     {
       "name": "mine_personal_data",
@@ -118,27 +118,27 @@
     },
     {
       "name": "add_task",
-      "value": "添加任务"
+      "value": "添加安排"
     },
     {
       "name": "edit_task",
-      "value": "编辑任务"
+      "value": "编辑安排"
     },
     {
       "name": "task_opened",
-      "value": "已开启"
+      "value": "已加入"
     },
     {
       "name": "target_setting",
-      "value": "目标设置"
+      "value": "计划设置"
     },
     {
       "name": "complete",
-      "value": "完成"
+      "value": "保存"
     },
     {
       "name": "tab_home",
-      "value": "首页"
+      "value": "日程"
     },
     {
       "name": "tab_achievement",
@@ -154,11 +154,11 @@
     },
     {
       "name": "privacy_title",
-      "value": "请在“健康生活”权限管理中开启“XX”权限"
+      "value": "请在“课表日程助手”权限管理中开启“XX”权限"
     },
     {
       "name": "privacy_desc",
-      "value": "该功能支持XX…（功能介绍）"
+      "value": "该功能用于提醒课程、作业和学习任务。"
     },
     {
       "name": "confirm",
@@ -174,23 +174,23 @@
     },
     {
       "name": "user_name",
-      "value": "Jolin"
+      "value": "学生用户"
     },
     {
       "name": "user_level",
-      "value": "LV.7"
+      "value": "学习中"
     },
     {
       "name": "user_signature",
-      "value": "这是一条简短的个人签名"
+      "value": "把今天安排清楚一点"
     },
     {
       "name": "unit_liter",
-      "value": "L"
+      "value": "小时"
     },
     {
       "name": "unit_number",
-      "value": "个"
+      "value": "页"
     },
     {
       "name": "unit_times",

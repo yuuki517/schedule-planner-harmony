@@ -2,31 +2,31 @@
   "string": [
     {
       "name": "DefaultFormAbility_desc",
-      "value": "healthy living service card"
+      "value": "Schedule Planner service card"
     },
     {
       "name": "DefaultFormAbility_label",
-      "value": "healthy living service cards labels"
+      "value": "Schedule Planner service card label"
     },
     {
       "name": "progress_desc",
-      "value": "service card"
+      "value": "study progress card"
     },
     {
       "name": "progress_display_name",
-      "value": "service card"
+      "value": "study progress card"
     },
     {
       "name": "agency_desc",
-      "value": "service card"
+      "value": "today schedule card"
     },
     {
       "name": "agency_display_name",
-      "value": "service card"
+      "value": "today schedule card"
     },
     {
       "name": "agency_no_task",
-      "value": "Go to Healthy Living to add tasks"
+      "value": "Go to Schedule Planner to add a schedule"
     }
   ]
 }

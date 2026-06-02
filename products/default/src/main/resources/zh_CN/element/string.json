@@ -2,31 +2,31 @@
   "string": [
     {
       "name": "DefaultFormAbility_desc",
-      "value": "健康生活-服务卡片"
+      "value": "课表日程助手-服务卡片"
     },
     {
       "name": "DefaultFormAbility_label",
-      "value": "健康生活-服务卡片-标签"
+      "value": "课表日程助手-服务卡片-标签"
     },
     {
       "name": "progress_desc",
-      "value": "服务卡片"
+      "value": "学习进度卡片"
     },
     {
       "name": "progress_display_name",
-      "value": "服务卡片"
+      "value": "学习进度卡片"
     },
     {
       "name": "agency_desc",
-      "value": "服务卡片"
+      "value": "今日安排卡片"
     },
     {
       "name": "agency_display_name",
-      "value": "服务卡片"
+      "value": "今日安排卡片"
     },
     {
       "name": "agency_no_task",
-      "value": "请前往健康生活添加任务"
+      "value": "请前往课表日程助手添加安排"
     }
   ]
 }

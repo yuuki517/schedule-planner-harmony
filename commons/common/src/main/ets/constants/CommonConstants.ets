@@ -111,11 +111,11 @@ export class CommonConstants {
     '3',
   ];
   static readonly PICKER_RANGE_APPLE: string[] = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5'
+    '10',
+    '20',
+    '30',
+    '50',
+    '80'
   ];
   // achievement info
   static readonly ACHIEVEMENT_STORE: string = 'achievementStore';
