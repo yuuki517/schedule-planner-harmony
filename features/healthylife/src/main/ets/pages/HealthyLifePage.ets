@@ -29,7 +29,7 @@ export struct HealthyLifePage {
   @State currentIndex: number = 0;
   @Provide achievementStore: AchievementStore = new AchievementStore(0, 0, false);
   @Provide('pathStack') pageStack: NavPathStack = new NavPathStack();
-  @Provide homeStore: HomeStore = new HomeStore([], -1, '', []);
+  @Provide homeStore: HomeStore = new HomeStore([], -1, '', [], []);
   private context = this.getUIContext()?.getHostContext() as common.UIAbilityContext;
   private windowClass = this.context.windowStage.getMainWindowSync();
 

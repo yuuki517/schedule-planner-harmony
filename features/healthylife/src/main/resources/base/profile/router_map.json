@@ -16,6 +16,16 @@
       "buildFunction": "editTaskBuilder"
     },
     {
+      "name": "AddCourseComponent",
+      "pageSourceFile": "src/main/ets/views/course/AddCourseComponent.ets",
+      "buildFunction": "addCourseBuilder"
+    },
+    {
+      "name": "EditCourseComponent",
+      "pageSourceFile": "src/main/ets/views/course/EditCourseComponent.ets",
+      "buildFunction": "editCourseBuilder"
+    },
+    {
       "name": "AchievementComponent",
       "pageSourceFile": "src/main/ets/views/AchievementComponent.ets",
       "buildFunction": "achBuilder"

@@ -26,6 +26,8 @@ export class RdbConstants {
   static readonly TABLE_OF_TASK: string = 'taskInfo';
   // database table name of day and task info
   static readonly TABLE_OF_DAY_TASK: string = 'dayTaskInfo';
+  // database table name of course info
+  static readonly TABLE_OF_COURSE: string = 'courseInfo';
   // database table name of form info
   static readonly TABLE_OF_FORM: string = 'formInfo';
   // database table name list
@@ -33,6 +35,7 @@ export class RdbConstants {
     this.TABLE_OF_DAY,
     this.TABLE_OF_TASK,
     this.TABLE_OF_DAY_TASK,
+    this.TABLE_OF_COURSE,
     this.TABLE_OF_FORM
   ];
   // column information for database tables of day info
@@ -63,7 +66,17 @@ export class RdbConstants {
     new ColumnInfo('finValue', 'text', -1, false, false, false),
     new ColumnInfo('isDone', 'boolean', -1, false, false, false)
   ];
-  // column information for database tables of day info
+  // column information for database tables of course info
+  static readonly COLUMNS_OF_COURSE: ColumnInfo[] = [
+    new ColumnInfo('id', 'integer', -1, false, true, true),
+    new ColumnInfo('name', 'text', -1, false, false, false),
+    new ColumnInfo('weekday', 'integer', 1, false, false, false),
+    new ColumnInfo('startTime', 'text', 5, false, false, false),
+    new ColumnInfo('endTime', 'text', 5, false, false, false),
+    new ColumnInfo('location', 'text', -1, true, false, false),
+    new ColumnInfo('repeatRule', 'text', -1, true, false, false)
+  ];
+  // column information for database tables of form info
   static readonly COLUMNS_OF_FORM: ColumnInfo[] = [
     new ColumnInfo('formId', 'text', -1, false, true, false),
     new ColumnInfo('formName', 'text', -1, false, false, false),
@@ -74,6 +87,7 @@ export class RdbConstants {
     'dayInfo': this.COLUMNS_OF_DAY,
     'taskInfo': this.COLUMNS_OF_TASK,
     'dayTaskInfo': this.COLUMNS_OF_DAY_TASK,
+    'courseInfo': this.COLUMNS_OF_COURSE,
     'formInfo': this.COLUMNS_OF_FORM
   }
 }

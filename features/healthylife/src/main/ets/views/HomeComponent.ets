@@ -17,6 +17,7 @@
 
 import { CommonConstants as Const } from 'common';
 import { HomeTopComponent } from './home/HomeTopComponent';
+import { CourseListComponent } from './home/CourseListComponent';
 import { TaskListComponent } from './home/TaskListComponent';
 import { AchievementStore } from '../viewmodel/AchievementStore';
 import { HomeStore, initCurrentDateInfo } from '../viewmodel/HomeStore';
@@ -44,7 +45,7 @@ export struct HomeComponent {
     NavDestination() {
       if (this.flag) {
         Stack() {
-          // top and task list area of enable scroll
+          // top and list area of enable scroll
           Scroll(this.scroller) {
             Column() {
               Text($r('app.string.healthy_life'))
@@ -64,6 +65,35 @@ export struct HomeComponent {
                 .zIndex(Const.HOME_COMPONENT_Z_INDEX)
 
               HomeTopComponent()
+
+              Row() {
+                Text('今日课程')
+                  .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor($r(`sys.color.font_primary`))
+                  .fontSize($r('app.float.default_20'))
+
+                Blank()
+
+                Button('添加课程')
+                  .buttonStyle(ButtonStyleMode.NORMAL)
+                  .height($r('app.float.default_32'))
+                  .fontSize($r('app.float.default_14'))
+                  .fontColor($r('app.color.text_font_color'))
+                  .backgroundColor($r('sys.color.background_primary'))
+                  .onClick(() => {
+                    this.pageStack.pushPathByName('AddCourseComponent', '');
+                  })
+              }
+              .width(Const.THOUSANDTH_1000)
+              .padding({
+                top: $r('app.float.default_24'),
+                bottom: $r('app.float.default_8'),
+                left: $r('app.float.default_16'),
+                right: $r('app.float.default_16')
+              })
+
+              CourseListComponent()
 
               Text($r('app.string.task_list'))
                 .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)

@@ -16,14 +16,15 @@
  */
 
 import {
-  CommonConstants as Const, convertDate2Str, DayInfo, DayTaskInfo
+  CommonConstants as Const, convertDate2Str, CourseInfo, DayInfo, DayTaskInfo
 } from 'common';
 import DayInfoApi from 'common/src/main/ets/database/tables/DayInfoApi';
 import TaskInfoApi from 'common/src/main/ets/database/tables/TaskInfoApi';
 import DayTaskInfoApi from 'common/src/main/ets/database/tables/DayTaskInfoApi';
+import CourseInfoApi from 'common/src/main/ets/database/tables/CourseInfoApi';
 
 /*
- * Global day and tasks information storage.
+ * Global day, tasks, and courses information storage.
  */
 @Observed
 export class HomeStore {
@@ -32,12 +33,15 @@ export class HomeStore {
   public selectedDay: number;
   public currentDate: string;
   public taskList: DayTaskInfo[];
+  public courseList: CourseInfo[];
 
-  constructor(weekList: DayInfo[], selectedDay: number, currentDate: string, taskList: DayTaskInfo[]) {
+  constructor(weekList: DayInfo[], selectedDay: number, currentDate: string, taskList: DayTaskInfo[],
+    courseList: CourseInfo[]) {
     this.weekList = weekList;
     this.selectedDay = selectedDay;
     this.currentDate = currentDate;
     this.taskList = taskList;
+    this.courseList = courseList;
   }
 
   public checkCurrentDay(): boolean {
@@ -74,11 +78,13 @@ export async function initCurrentDateInfo(date: Date): Promise<HomeStore> {
       taskList.push(openedTask.convert2DefaultDayTask(dateStr))
     }
   }
-  return new HomeStore(weekList, selectedDay + Const.WEEK_DAY_NUM, dateStr, taskList);
+  let weekday = date.getDay() === 0 ? 7 : date.getDay();
+  let courseList: CourseInfo[] = await CourseInfoApi.queryByWeekday(weekday);
+  return new HomeStore(weekList, selectedDay + Const.WEEK_DAY_NUM, dateStr, taskList, courseList);
 }
 
 /*
- * Update the task list information in the global storage information.
+ * Update the task and course list information in the global storage information.
  * @param { HomeStore } homeStore The global storage information.
  * @returns { Promise<void> }  A promise object.
  */
@@ -100,6 +106,20 @@ export async function updateTaskList(homeStore: HomeStore): Promise<void> {
     }
   }
   homeStore.taskList = taskList;
+  await updateCourseList(homeStore);
+}
+
+export async function updateCourseList(homeStore: HomeStore): Promise<void> {
+  let selectedDate = convertStr2SafeDate(homeStore.currentDate);
+  let weekday = selectedDate.getDay() === 0 ? 7 : selectedDate.getDay();
+  homeStore.courseList = await CourseInfoApi.queryByWeekday(weekday);
+}
+
+function convertStr2SafeDate(date: string): Date {
+  const year = Number(date.substring(0, 4));
+  const month = Number(date.substring(4, 6)) - 1;
+  const day = Number(date.substring(6, 8));
+  return new Date(year, month, day);
 }
 
 /*

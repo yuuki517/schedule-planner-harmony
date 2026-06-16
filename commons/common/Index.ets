@@ -8,6 +8,8 @@ export { DayInfo } from './src/main/ets/model/database/DayInfo';
 
 export { TaskInfo } from './src/main/ets/model/database/TaskInfo';
 
+export { CourseInfo } from './src/main/ets/model/database/CourseInfo';
+
 export { FormInfo } from './src/main/ets/model/database/FormInfo';
 
 export { DayTaskInfo } from './src/main/ets/model/database/DayTaskInfo';
