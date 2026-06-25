@@ -147,17 +147,16 @@ class DayInfoApi implements TableApi<DayInfo> {
 
   async updateByKey(date: string, targetTaskNum: number, finTaskNum: number): Promise<boolean> {
     let result: boolean = true;
-    let predicates = new relationalStore.RdbPredicates(TABLE_NAME);
-    predicates.equalTo(PRIMARY_KEY, date);
-    let valueBucket: relationalStore.ValuesBucket = {
-      'targetTaskNum': targetTaskNum,
-      'finTaskNum': finTaskNum,
-    }
-    await RdbUtils.rdbStore?.update(valueBucket, predicates).then(async () => {
+    let dayInfo = new DayInfo(date, targetTaskNum, finTaskNum);
+    await RdbUtils.rdbStore?.insert(TABLE_NAME, this.convertEntity2ValuesBucket(dayInfo, false),
+      relationalStore.ConflictResolution.ON_CONFLICT_REPLACE).then((rowId: number) => {
+      if (rowId === -1) {
+        result = false;
+      }
       hilog.info(0x0000, TAG,
-        `Updated is successful, date is ${date}, targetTaskNum is ${targetTaskNum}, finTaskNum is ${finTaskNum}`);
+        `Insert or replace day info is successful, date is ${date}, targetTaskNum is ${targetTaskNum}, finTaskNum is ${finTaskNum}`);
     }).catch((err: BusinessError) => {
-      hilog.error(0x0000, TAG, `Updated failed, code is ${err.code}, message is ${err.message}`);
+      hilog.error(0x0000, TAG, `Insert or replace day info failed, code is ${err.code}, message is ${err.message}`);
       result = false;
     });
     return result;

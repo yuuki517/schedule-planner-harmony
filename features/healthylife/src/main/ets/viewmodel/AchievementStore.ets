@@ -16,7 +16,8 @@
  */
 
 import { JSON } from '@kit.ArkTS';
-import { CommonConstants as Const } from 'common';
+import { CommonConstants as Const, DayInfo, convertDate2Str, convertStr2Date } from 'common';
+import DayInfoApi from 'common/src/main/ets/database/tables/DayInfoApi';
 import { getAchievementDoneIndex } from '../model/AchievementModel';
 import { TaskInfoDialogParams } from './dialog/TaskInfoDialogParams';
 import { PreferencesUtils } from 'common/src/main/ets/utils/PreferencesUtils';
@@ -42,11 +43,47 @@ export class AchievementStore {
  * Initialize global achievement information.
  */
 export async function initAchievementStore() {
-  const maxConsecutiveDays = Number(await PreferencesUtils.getPreference(Const.MAX_CONSECUTIVE_DAYS));
-  const currentConsecutiveDays = Number(await PreferencesUtils.getPreference(Const.CURRENT_CONSECUTIVE_DAYS));
+  const maxConsecutiveDays = Number(await PreferencesUtils.getPreference(Const.MAX_CONSECUTIVE_DAYS)) || 0;
+  const currentConsecutiveDays = Number(await PreferencesUtils.getPreference(Const.CURRENT_CONSECUTIVE_DAYS)) || 0;
   const currentDayStatusStr: string = await PreferencesUtils.getPreference(Const.CURRENT_DAY_STATUS);
-  const currentDayStatus = JSON.parse(currentDayStatusStr) as boolean;
-  return new AchievementStore(maxConsecutiveDays, currentConsecutiveDays, currentDayStatus)
+  let currentDayStatus = false;
+  if (currentDayStatusStr) {
+    currentDayStatus = JSON.parse(currentDayStatusStr) as boolean;
+  }
+  let store = new AchievementStore(maxConsecutiveDays, currentConsecutiveDays, currentDayStatus);
+  await refreshAchievementFromDayInfo(store);
+  return store;
+}
+
+export async function refreshAchievementFromDayInfo(achievementStore: AchievementStore): Promise<void> {
+  let dayList: DayInfo[] = await DayInfoApi.query('SELECT * FROM dayInfo ORDER BY date');
+  let maxStreak = 0;
+  let currentStreak = 0;
+  let previousDate = '';
+  for (let dayInfo of dayList) {
+    let completed = dayInfo.targetTaskNum > 0 && dayInfo.finTaskNum >= dayInfo.targetTaskNum;
+    if (!completed) {
+      currentStreak = 0;
+      previousDate = '';
+      continue;
+    }
+    if (previousDate !== '' && isNextDate(previousDate, dayInfo.date)) {
+      currentStreak += 1;
+    } else {
+      currentStreak = 1;
+    }
+    previousDate = dayInfo.date;
+    if (currentStreak > maxStreak) {
+      maxStreak = currentStreak;
+    }
+  }
+
+  achievementStore.maxConsecutiveDays = maxStreak;
+  achievementStore.currentConsecutiveDays = calculateTodayStreak(dayList);
+  achievementStore.currentDayStatus = achievementStore.currentConsecutiveDays > 0;
+  await PreferencesUtils.putPreference(Const.MAX_CONSECUTIVE_DAYS, String(achievementStore.maxConsecutiveDays));
+  await PreferencesUtils.putPreference(Const.CURRENT_CONSECUTIVE_DAYS, String(achievementStore.currentConsecutiveDays));
+  await PreferencesUtils.putPreference(Const.CURRENT_DAY_STATUS, String(achievementStore.currentDayStatus));
 }
 
 /*
@@ -54,29 +91,38 @@ export async function initAchievementStore() {
  * @param { TaskInfoDialogParams } params Task info for clock custom dialog parameters.
  */
 export async function updateAchievementStore(params: TaskInfoDialogParams) {
-  //Judge whether all tasks are completed that day, and return if not.
-  const dayInfo = params.homeStore.weekList[params.homeStore.selectedDay];
-  if (dayInfo.finTaskNum < dayInfo.targetTaskNum || params.achievementStore.currentDayStatus) {
-    return;
+  await refreshAchievementFromDayInfo(params.achievementStore);
+  const achievementDoneIndex = getAchievementDoneIndex(params.achievementStore.maxConsecutiveDays);
+  if (achievementDoneIndex !== -1) {
+    openAchievementCustomDialog(params.uIContext, achievementDoneIndex);
   }
+}
 
-  // If all tasks have been completed that day, the number of consecutive days of completion is added to the user preferences.
-  params.achievementStore.currentConsecutiveDays += 1;
-  await PreferencesUtils.putPreference(Const.CURRENT_CONSECUTIVE_DAYS,
-    String(params.achievementStore.currentConsecutiveDays));
-  params.achievementStore.currentDayStatus = true;
-  await PreferencesUtils.putPreference(Const.CURRENT_DAY_STATUS, String(params.achievementStore.currentDayStatus));
+function isNextDate(previous: string, current: string): boolean {
+  let date = convertStr2Date(previous);
+  date.setDate(date.getDate() + 1);
+  return convertDate2Str(date) === current;
+}
 
-  // Determine whether the current number of consecutive days exceeds the maximum number of consecutive days.
-  if (params.achievementStore.currentConsecutiveDays > params.achievementStore.maxConsecutiveDays) {
-    // If it exceeds, synchronize the global storage and user preference content to update.
-    params.achievementStore.maxConsecutiveDays = params.achievementStore.currentConsecutiveDays;
-    await PreferencesUtils.putPreference(Const.MAX_CONSECUTIVE_DAYS,
-      String(params.achievementStore.maxConsecutiveDays));
-    // Get the achievement for a specified number of days, and if so, open a pop-up window to display the achievement animation.
-    const achievementDoneIndex = getAchievementDoneIndex(params.achievementStore.maxConsecutiveDays);
-    if (achievementDoneIndex !== -1) {
-      openAchievementCustomDialog(params.uIContext, achievementDoneIndex);
+function calculateTodayStreak(dayList: DayInfo[]): number {
+  let expectedDate = convertDate2Str(new Date());
+  let streak = 0;
+  for (let index = dayList.length - 1; index >= 0; index--) {
+    let dayInfo = dayList[index];
+    if (dayInfo.date > expectedDate) {
+      continue;
+    }
+    if (dayInfo.date < expectedDate) {
+      break;
+    }
+    if (dayInfo.targetTaskNum > 0 && dayInfo.finTaskNum >= dayInfo.targetTaskNum) {
+      streak += 1;
+      let date = convertStr2Date(expectedDate);
+      date.setDate(date.getDate() - 1);
+      expectedDate = convertDate2Str(date);
+    } else {
+      break;
     }
   }
+  return streak;
 }

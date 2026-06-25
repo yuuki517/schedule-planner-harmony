@@ -1,34 +1,69 @@
-{
-  "routerMap": [
-    {
-      "name": "HomeComponent",
-      "pageSourceFile": "src/main/ets/views/HomeComponent.ets",
-      "buildFunction": "homeBuilder"
-    },
-    {
-      "name": "AddTaskComponent",
-      "pageSourceFile": "src/main/ets/views/task/AddTaskComponent.ets",
-      "buildFunction": "addTaskBuilder"
-    },
-    {
-      "name": "EditTaskComponent",
-      "pageSourceFile": "src/main/ets/views/task/EditTaskComponent.ets",
-      "buildFunction": "editTaskBuilder"
-    },
-    {
-      "name": "AddCourseComponent",
-      "pageSourceFile": "src/main/ets/views/course/AddCourseComponent.ets",
-      "buildFunction": "addCourseBuilder"
-    },
-    {
-      "name": "EditCourseComponent",
-      "pageSourceFile": "src/main/ets/views/course/EditCourseComponent.ets",
-      "buildFunction": "editCourseBuilder"
-    },
-    {
-      "name": "AchievementComponent",
-      "pageSourceFile": "src/main/ets/views/AchievementComponent.ets",
-      "buildFunction": "achBuilder"
-    }
-  ]
+﻿{
+    "routerMap":  [
+                      {
+                          "name":  "HomeComponent",
+                          "pageSourceFile":  "src/main/ets/views/HomeComponent.ets",
+                          "buildFunction":  "homeBuilder"
+                      },
+                      {
+                          "name":  "AddTaskComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/AddTaskComponent.ets",
+                          "buildFunction":  "addTaskBuilder"
+                      },
+                      {
+                          "name":  "EditTaskComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/EditTaskComponent.ets",
+                          "buildFunction":  "editTaskBuilder"
+                      },
+                      {
+                          "name":  "AddCourseComponent",
+                          "pageSourceFile":  "src/main/ets/views/course/AddCourseComponent.ets",
+                          "buildFunction":  "addCourseBuilder"
+                      },
+                      {
+                          "name":  "EditCourseComponent",
+                          "pageSourceFile":  "src/main/ets/views/course/EditCourseComponent.ets",
+                          "buildFunction":  "editCourseBuilder"
+                      },
+                      {
+                          "name":  "AddStudyTaskComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/AddStudyTaskComponent.ets",
+                          "buildFunction":  "addStudyTaskBuilder"
+                      },
+                      {
+                          "name":  "EditStudyTaskComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/EditStudyTaskComponent.ets",
+                          "buildFunction":  "editStudyTaskBuilder"
+                      },
+                      {
+                          "name":  "AddPlanTaskComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/AddPlanTaskComponent.ets",
+                          "buildFunction":  "addPlanTaskBuilder"
+                      },
+                      {
+                          "name":  "EditPlanTaskComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/EditPlanTaskComponent.ets",
+                          "buildFunction":  "editPlanTaskBuilder"
+                      },
+                      {
+                          "name":  "AddHabitComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/AddHabitComponent.ets",
+                          "buildFunction":  "addHabitBuilder"
+                      },
+                      {
+                          "name":  "EditHabitComponent",
+                          "pageSourceFile":  "src/main/ets/views/task/EditHabitComponent.ets",
+                          "buildFunction":  "editHabitBuilder"
+                      },
+                      {
+                          "name":  "AchievementComponent",
+                          "pageSourceFile":  "src/main/ets/views/AchievementComponent.ets",
+                          "buildFunction":  "achBuilder"
+                      },
+                      {
+                          "name":  "AiChatComponent",
+                          "pageSourceFile":  "src/main/ets/views/ai/AiChatComponent.ets",
+                          "buildFunction":  "aiChatBuilder"
+                      }
+                  ]
 }

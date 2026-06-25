@@ -28,6 +28,12 @@ export class RdbConstants {
   static readonly TABLE_OF_DAY_TASK: string = 'dayTaskInfo';
   // database table name of course info
   static readonly TABLE_OF_COURSE: string = 'courseInfo';
+  // database table name of study task info
+  static readonly TABLE_OF_STUDY_TASK: string = 'studyTaskInfo';
+  // database table name of plan task info
+  static readonly TABLE_OF_PLAN_TASK: string = 'planTaskInfo';
+  // database table name of habit info
+  static readonly TABLE_OF_HABIT: string = 'habitInfo';
   // database table name of form info
   static readonly TABLE_OF_FORM: string = 'formInfo';
   // database table name list
@@ -36,6 +42,9 @@ export class RdbConstants {
     this.TABLE_OF_TASK,
     this.TABLE_OF_DAY_TASK,
     this.TABLE_OF_COURSE,
+    this.TABLE_OF_STUDY_TASK,
+    this.TABLE_OF_PLAN_TASK,
+    this.TABLE_OF_HABIT,
     this.TABLE_OF_FORM
   ];
   // column information for database tables of day info
@@ -76,6 +85,40 @@ export class RdbConstants {
     new ColumnInfo('location', 'text', -1, true, false, false),
     new ColumnInfo('repeatRule', 'text', -1, true, false, false)
   ];
+  // column information for database tables of study task info
+  static readonly COLUMNS_OF_STUDY_TASK: ColumnInfo[] = [
+    new ColumnInfo('id', 'integer', -1, false, true, true),
+    new ColumnInfo('title', 'text', -1, false, false, false),
+    new ColumnInfo('courseName', 'text', -1, true, false, false),
+    new ColumnInfo('dueDate', 'text', 8, false, false, false),
+    new ColumnInfo('dueTime', 'text', 5, false, false, false),
+    new ColumnInfo('estimateMinutes', 'integer', -1, false, false, false),
+    new ColumnInfo('priority', 'integer', -1, false, false, false),
+    new ColumnInfo('note', 'text', -1, true, false, false),
+    new ColumnInfo('scheduledDate', 'text', 8, true, false, false),
+    new ColumnInfo('isDone', 'boolean', -1, false, false, false)
+  ];
+  // column information for database tables of plan task info
+  static readonly COLUMNS_OF_PLAN_TASK: ColumnInfo[] = [
+    new ColumnInfo('id', 'integer', -1, false, true, true),
+    new ColumnInfo('title', 'text', -1, false, false, false),
+    new ColumnInfo('courseName', 'text', -1, true, false, false),
+    new ColumnInfo('estimateMinutes', 'integer', -1, false, false, false),
+    new ColumnInfo('priority', 'integer', -1, false, false, false),
+    new ColumnInfo('note', 'text', -1, true, false, false),
+    new ColumnInfo('scheduledDate', 'text', 8, true, false, false),
+    new ColumnInfo('isDone', 'boolean', -1, false, false, false)
+  ];
+  // column information for database tables of habit info
+  static readonly COLUMNS_OF_HABIT: ColumnInfo[] = [
+    new ColumnInfo('id', 'integer', -1, false, true, true),
+    new ColumnInfo('name', 'text', -1, false, false, false),
+    new ColumnInfo('estimateMinutes', 'integer', -1, false, false, false),
+    new ColumnInfo('isFixedTime', 'boolean', -1, false, false, false),
+    new ColumnInfo('fixedTime', 'text', 5, true, false, false),
+    new ColumnInfo('isDone', 'boolean', -1, false, false, false),
+    new ColumnInfo('reminderId', 'integer', -1, false, false, false)
+  ];
   // column information for database tables of form info
   static readonly COLUMNS_OF_FORM: ColumnInfo[] = [
     new ColumnInfo('formId', 'text', -1, false, true, false),
@@ -88,6 +131,9 @@ export class RdbConstants {
     'taskInfo': this.COLUMNS_OF_TASK,
     'dayTaskInfo': this.COLUMNS_OF_DAY_TASK,
     'courseInfo': this.COLUMNS_OF_COURSE,
+    'studyTaskInfo': this.COLUMNS_OF_STUDY_TASK,
+    'planTaskInfo': this.COLUMNS_OF_PLAN_TASK,
+    'habitInfo': this.COLUMNS_OF_HABIT,
     'formInfo': this.COLUMNS_OF_FORM
   }
 }

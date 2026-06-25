@@ -1,4 +1,4 @@
-/*
+﻿/*
  *
  *  * Copyright (c) 2025 Huawei Device Co., Ltd.
  *  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,10 @@
 import { CommonConstants as Const } from 'common';
 import { HomeTopComponent } from './home/HomeTopComponent';
 import { CourseListComponent } from './home/CourseListComponent';
-import { TaskListComponent } from './home/TaskListComponent';
+import { StudyTaskListComponent } from './home/StudyTaskListComponent';
+import { PlanTaskListComponent } from './home/PlanTaskListComponent';
+import { HabitListComponent } from './home/HabitListComponent';
+import { SmartScheduleComponent } from './home/SmartScheduleComponent';
 import { AchievementStore } from '../viewmodel/AchievementStore';
 import { HomeStore, initCurrentDateInfo } from '../viewmodel/HomeStore';
 
@@ -66,6 +69,20 @@ export struct HomeComponent {
 
               HomeTopComponent()
 
+              SmartScheduleComponent()
+
+              Button('AI 对话')
+                .buttonStyle(ButtonStyleMode.NORMAL)
+                .width(Const.THOUSANDTH_940)
+                .height($r('app.float.default_40'))
+                .fontSize($r('app.float.default_14'))
+                .fontColor(Color.White)
+                .backgroundColor($r('app.color.text_font_color'))
+                .margin({ top: $r('app.float.default_8'), bottom: $r('app.float.default_8') })
+                .onClick(() => {
+                  this.pageStack.pushPathByName('AiChatComponent', '');
+                })
+
               Row() {
                 Text('今日课程')
                   .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
@@ -95,19 +112,94 @@ export struct HomeComponent {
 
               CourseListComponent()
 
-              Text($r('app.string.task_list'))
-                .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
-                .fontWeight(FontWeight.Bold)
-                .fontColor($r(`sys.color.font_primary`))
-                .fontSize($r('app.float.default_20'))
-                .width(Const.THOUSANDTH_1000)
-                .padding({
-                  top: $r('app.float.default_24'),
-                  bottom: $r('app.float.default_8'),
-                  left: $r('app.float.default_16')
-                })
+              Row() {
+                Text('DDL')
+                  .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor($r('sys.color.font_primary'))
+                  .fontSize($r('app.float.default_20'))
 
-              TaskListComponent()
+                Blank()
+
+                Button('添加DDL')
+                  .buttonStyle(ButtonStyleMode.NORMAL)
+                  .height($r('app.float.default_32'))
+                  .fontSize($r('app.float.default_14'))
+                  .fontColor($r('app.color.text_font_color'))
+                  .backgroundColor($r('sys.color.background_primary'))
+                  .onClick(() => {
+                    this.pageStack.pushPathByName('AddStudyTaskComponent', '');
+                  })
+              }
+              .width(Const.THOUSANDTH_1000)
+              .padding({
+                top: $r('app.float.default_24'),
+                bottom: $r('app.float.default_8'),
+                left: $r('app.float.default_16'),
+                right: $r('app.float.default_16')
+              })
+
+              StudyTaskListComponent()
+
+              Row() {
+                Text('任务')
+                  .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor($r('sys.color.font_primary'))
+                  .fontSize($r('app.float.default_20'))
+
+                Blank()
+
+                Button('添加任务')
+                  .buttonStyle(ButtonStyleMode.NORMAL)
+                  .height($r('app.float.default_32'))
+                  .fontSize($r('app.float.default_14'))
+                  .fontColor($r('app.color.text_font_color'))
+                  .backgroundColor($r('sys.color.background_primary'))
+                  .onClick(() => {
+                    this.pageStack.pushPathByName('AddPlanTaskComponent', '');
+                  })
+              }
+              .width(Const.THOUSANDTH_1000)
+              .padding({
+                top: $r('app.float.default_24'),
+                bottom: $r('app.float.default_8'),
+                left: $r('app.float.default_16'),
+                right: $r('app.float.default_16')
+              })
+
+              PlanTaskListComponent()
+
+              Row() {
+                Text('常规习惯')
+                  .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor($r('sys.color.font_primary'))
+                  .fontSize($r('app.float.default_20'))
+
+                Blank()
+
+                Button('添加习惯')
+                  .buttonStyle(ButtonStyleMode.NORMAL)
+                  .height($r('app.float.default_32'))
+                  .fontSize($r('app.float.default_14'))
+                  .fontColor($r('app.color.text_font_color'))
+                  .backgroundColor($r('sys.color.background_primary'))
+                  .onClick(() => {
+                    this.pageStack.pushPathByName('AddHabitComponent', '');
+                  })
+              }
+              .width(Const.THOUSANDTH_1000)
+              .padding({
+                top: $r('app.float.default_24'),
+                bottom: $r('app.float.default_8'),
+                left: $r('app.float.default_16'),
+                right: $r('app.float.default_16')
+              })
+
+              HabitListComponent()
+
+
             }
           }
           .width(Const.THOUSANDTH_1000)
@@ -119,25 +211,6 @@ export struct HomeComponent {
             effectEdge: EffectEdge.END
           })
 
-          Button({
-            type: ButtonType.Circle,
-            stateEffect: false
-          }) {
-            Image($r('app.media.ic_home_add'))
-              .borderRadius(Const.BORDER_RADIUS_PERCENT_50)
-          }
-          .width($r('app.float.default_48'))
-          .height($r('app.float.default_48'))
-          .position({
-            x: Const.THOUSANDTH_440,
-            y: Const.THOUSANDTH_900
-          })
-          .zIndex(Const.HOME_COMPONENT_Z_INDEX)
-          .onClick(() => {
-            if (this.homeStore.checkCurrentDay()) {
-              this.pageStack.pushPathByName('AddTaskComponent', '');
-            }
-          })
         }
         .width(Const.THOUSANDTH_1000)
         .height(Const.THOUSANDTH_1000)

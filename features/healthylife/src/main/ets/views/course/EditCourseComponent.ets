@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0
  */
@@ -113,7 +113,7 @@ export struct EditCourseComponent {
         }
         .width(Const.THOUSANDTH_1000)
         .padding({
-          top: $r('app.float.default_16'),
+          top: $r('app.float.default_56'),
           left: $r('app.float.default_16'),
           right: $r('app.float.default_16'),
           bottom: $r('app.float.default_40')
@@ -127,6 +127,11 @@ export struct EditCourseComponent {
       height: Const.THOUSANDTH_1000
     })
     .title('编辑课程')
+    .padding({
+      top: $r('app.float.default_40'),
+      left: $r('app.float.default_6'),
+      right: $r('app.float.default_6')
+    })
     .backgroundColor($r('sys.color.background_secondary'))
   }
 
@@ -136,6 +141,25 @@ export struct EditCourseComponent {
       .fontSize($r('app.float.default_16'))
       .fontColor($r('sys.color.font_secondary'))
       .width(Const.THOUSANDTH_940)
+  }
+
+  @Builder
+  repeatRuleBuilder() {
+    Row() {
+      ForEach(['每周', '单周', '双周'], (item: string) => {
+        Button(item)
+          .buttonStyle(ButtonStyleMode.NORMAL)
+          .fontSize($r('app.float.default_14'))
+          .fontColor(this.repeatRule === item ? Color.White : $r('sys.color.font_primary'))
+          .backgroundColor(this.repeatRule === item ? $r('app.color.text_font_color') : $r('sys.color.background_primary'))
+          .height($r('app.float.default_36'))
+          .margin({ right: $r('app.float.default_8') })
+          .onClick(() => {
+            this.repeatRule = item;
+          })
+      }, (item: string) => item)
+    }
+    .width(Const.THOUSANDTH_940)
   }
 
   async saveCourse(): Promise<void> {
@@ -164,3 +188,4 @@ function inputStyle() {
   .backgroundColor($r('sys.color.background_primary'))
   .borderRadius($r('app.float.default_12'))
 }
+

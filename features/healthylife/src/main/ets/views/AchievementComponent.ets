@@ -1,5 +1,5 @@
 import { CommonConstants as Const } from 'common';
-import { AchievementStore } from '../viewmodel/AchievementStore';
+import { AchievementStore, refreshAchievementFromDayInfo } from '../viewmodel/AchievementStore';
 import { openAchievementCustomDialog } from './dialog/AchievementDialog';
 import { AchievementItem, AchievementList } from '../model/AchievementModel';
 
@@ -12,6 +12,16 @@ export function achBuilder() {
 export struct AchievementComponent {
   @Consume achievementStore: AchievementStore;
   @Consume('pathStack') pageStack: NavPathStack;
+  @State maxConsecutiveDays: number = 0;
+
+  aboutToAppear(): void {
+    this.refreshAchievement();
+  }
+
+  async refreshAchievement(): Promise<void> {
+    await refreshAchievementFromDayInfo(this.achievementStore);
+    this.maxConsecutiveDays = this.achievementStore.maxConsecutiveDays;
+  }
 
   build() {
     NavDestination() {
@@ -39,13 +49,22 @@ export struct AchievementComponent {
           right: $r('app.float.default_12')
         })
 
+        Text(`最高连续完成 ${this.maxConsecutiveDays} 天`)
+          .fontColor($r(`sys.color.font_on_primary`))
+          .fontSize($r('app.float.default_14'))
+          .width(Const.THOUSANDTH_1000)
+          .margin({
+            left: $r('app.float.default_12'),
+            bottom: $r('app.float.default_8')
+          })
+
         Flex({
           direction: FlexDirection.Row,
           wrap: FlexWrap.Wrap
         }) {
           ForEach(AchievementList, (item: AchievementItem, index: number) => {
             this.achievementBuilder(index, item)
-          }, (item: AchievementItem, index: number) => index + JSON.stringify(item))
+          }, (item: AchievementItem, index: number) => index + JSON.stringify(item) + this.maxConsecutiveDays)
         }
         .width(Const.THOUSANDTH_1000)
       }
@@ -75,7 +94,7 @@ export struct AchievementComponent {
     Column({
       space: $r('app.float.default_18')
     }) {
-      Image(item.level <= this.achievementStore.maxConsecutiveDays ? item.iconOn : item.iconOff)
+      Image(item.level <= this.maxConsecutiveDays ? item.iconOn : item.iconOff)
         .width(Const.THOUSANDTH_1000)
         .height($r('app.float.default_88'))
         .objectFit(ImageFit.Contain)
@@ -91,7 +110,7 @@ export struct AchievementComponent {
       bottom: $r('app.float.default_10')
     })
     .onClick(() => {
-      if (item.level <= this.achievementStore.maxConsecutiveDays) {
+      if (item.level <= this.maxConsecutiveDays) {
         openAchievementCustomDialog(this.getUIContext(), index);
       }
     })

@@ -22,9 +22,7 @@ import { CommonConstants as Const, convertStr2Date, DayInfo, formatSystemTime } 
 export struct WeekCalendarComponent {
   @Consume @Watch('onDataChange') homeStore: HomeStore;
   @State showDateStr: string = '';
-  @State currentWeekIndex: number = Const.WEEK_DAY_NUM;
   showDate: Date = new Date();
-  scroller: Scroller = new Scroller();
 
   onDataChange() {
     this.showDate = convertStr2Date(this.homeStore.currentDate);
@@ -34,36 +32,6 @@ export struct WeekCalendarComponent {
   private async refreshDateInfo(diffDay: number) {
     this.showDate.setDate(this.showDate.getDate() + diffDay);
     this.homeStore = await initCurrentDateInfo(this.showDate);
-  }
-
-  /*
-   * Switch the week view, swipe left and right to the top and next week after exceeding a certain threshold.
-   */
-  private weekChange() {
-    const center = this.scroller.currentOffset().xOffset;
-    if (center <= Const.WEEK_LEFT_LIMIT) {
-      this.animateToWeekAndRefresh(-Const.WEEK_DAY_NUM, 0);
-    } else if (center >= Const.WEEK_RIGHT_LIMIT) {
-      this.animateToWeekAndRefresh(Const.WEEK_DAY_NUM, Const.WEEK_DAY_NUM * 2);
-    } else {
-      this.getUIContext().animateTo({
-        duration: Const.DURATION_200
-      }, () => {
-        this.scroller.scrollToIndex(Const.WEEK_DAY_NUM);
-      });
-    }
-  }
-
-  private animateToWeekAndRefresh(diffDay: number, toIndex: number) {
-    this.getUIContext().animateTo({
-      duration: Const.DURATION_100,
-      onFinish: async () => {
-        await this.refreshDateInfo(diffDay);
-        this.scroller.scrollToIndex(Const.WEEK_DAY_NUM);
-      }
-    }, () => {
-      this.scroller.scrollToIndex(toIndex);
-    });
   }
 
   aboutToAppear(): void {
@@ -93,21 +61,13 @@ export struct WeekCalendarComponent {
           })
         }
 
-        List({
-          scroller: this.scroller,
-          initialIndex: this.currentWeekIndex
-        }) {
+        Row() {
           ForEach(this.homeStore.weekList, (item: DayInfo, index: number) => {
             this.dayOfWeekBuilder(item, index)
-          }, (item: DayInfo, index: number) => index + JSON.stringify(item))
+          }, (item: DayInfo, index: number) => `${item.date}-${item.targetTaskNum}-${item.finTaskNum}-${index}`)
         }
-        .scrollBar(BarState.Off)
-        .listDirection(Axis.Horizontal)
         .width(Const.THOUSANDTH_1000)
         .height(Const.THOUSANDTH_500)
-        .onScrollStop(() => {
-          this.weekChange();
-        })
       }
       .width(Const.THOUSANDTH_1000)
       .height(Const.THOUSANDTH_1000)
@@ -121,12 +81,9 @@ export struct WeekCalendarComponent {
   }
 
   @Builder
-  dayOfWeekBuilder(item:
-    DayInfo, index:
-    number
-  ) {
+  dayOfWeekBuilder(item: DayInfo, index: number) {
     Column() {
-      Text(Const.WEEK_SHORTHAND_LIST[index % Const.WEEK_DAY_NUM])
+      Text(Const.WEEK_SHORTHAND_LIST[index])
         .fontFamily(Const.HARMONY_HEI_TI_MEDIUM)
         .fontWeight(FontWeight.Regular)
         .fontColor(this.homeStore.selectedDay === index ? $r('sys.color.brand') : $r('sys.color.font_secondary'))
@@ -160,10 +117,7 @@ export struct WeekCalendarComponent {
   }
 
   @Builder
-  symbolBuild(symbolResource:
-    Resource, clickFun:
-    (event: ClickEvent) => void
-  ) {
+  symbolBuild(symbolResource: Resource, clickFun: (event: ClickEvent) => void) {
     SymbolGlyph(symbolResource)
       .fontColor([$r('sys.color.icon_secondary')])
       .fontWeight(FontWeight.Normal)
